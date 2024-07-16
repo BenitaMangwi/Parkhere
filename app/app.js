@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser'); // Import the cookieParser middle
 const locationController = require("./controllers/locationController.js");
 const bookingController = require("./controllers/bookingController");
 const userController = require("./controllers/userController");
-const signupandloginController = require("./controllers/signupandloginController");
+const signupandloginController = require("./controllers/signupandloginController.js/index.js");
 
 // Import models for interacting with the database
 const locationModel = require("./models/locationModel");
