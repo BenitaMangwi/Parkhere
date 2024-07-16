@@ -1,7 +1,7 @@
 const express = require("express"); // Import the Express.js library
 const path = require("path"); // Import the path library for file path manipulation
-const createError = require("http-errors"); // Import the createError function for handling HTTP errors
-const cookieParser = require('cookie-parser'); // Import the cookieParser middleware for parsing cookies
+//const createError = require("http-errors"); // Import the createError function for handling HTTP errors
+//const cookieParser = require('cookie-parser'); // Import the cookieParser middleware for parsing cookies
 
 // Import controllers for handling different functionalities
 const locationController = require("./controllers/locationController.js");
