@@ -1,48 +1,108 @@
-// Import express.js
-const express = require("express");
+const express = require("express"); // Import the Express.js library
+const path = require("path"); // Import the path library for file path manipulation
+const createError = require("http-errors"); // Import the createError function for handling HTTP errors
+const cookieParser = require('cookie-parser'); // Import the cookieParser middleware for parsing cookies
 
-// Create express app
-var app = express();
+// Import controllers for handling different functionalities
+const locationController = require("./controllers/locationController.js");
+const bookingController = require("./controllers/bookingController");
+const userController = require("./controllers/userController");
+const signupandloginController = require("./controllers/signupandloginController");
 
-// Add static files location
+// Import models for interacting with the database
+const locationModel = require("./models/locationModel");
+const bookingModel = require("./models/bookingModel");
+const userModel = require("./models/userModel");
+
+const app = express(); // Create an instance of the Express application
+
+// Serve static files from the "static" directory
 app.use(express.static("static"));
 
-// Get the functions in the db.js file to use
-const db = require('./services/db');
+// Set the view engine to Pug and specify the views directory
+app.set("view engine", "pug");
+app.set("views", "./app/views");
 
-// Create a route for root - /
-app.get("/", function(req, res) {
-    res.send("park here app!");
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, "public")));
+
+// Parse incoming JSON data
+app.use(express.json());
+
+// Parse incoming URL-encoded data
+app.use(express.urlencoded({ extended: false }));
+
+// Parse cookies from incoming requests
+app.use(cookieParser());
+
+// Cookie setup middleware
+app.use(async (req, res, next) => {
+  // Set the user cookie to "guest" if it doesn't exist
+  if (req.cookies.user == null) {
+    res.cookie('user', 'guest');
+    console.log("Guest mode");
+  }
+
+  // Set the res.locals.user variable based on the user cookie
+  if (req.cookies.user == 'guest' || req.cookies.user == null) {
+    res.locals.user = "guest";
+  } else {
+    res.locals.user = await userModel.getName(req.cookies.user);
+  }
+
+  next(); // Continue processing the request
 });
 
-// Create a route for testing the db
-app.get("/db_test", function(req, res) {
-    // Assumes a table called test_table exists in your database
-    sql = 'select * from test_table';
-    db.query(sql).then(results => {
-        console.log(results);
-        res.send(results)
-    });
+// Mount controllers to handle routes with specific prefixes
+app.use("/locations", locationController);
+app.use("/bookings", bookingController);
+app.use("/users", userController);
+app.use("/auth", signupandloginController);
+
+// Render the landing page for unauthenticated users
+app.get("/landing_page", (req, res) => {
+  res.render("landing_page");
 });
 
-// Create a route for /goodbye
-// Responds to a 'GET' request
-app.get("/goodbye", function(req, res) {
-    res.send("Goodbye world!");
+// Redirect users based on their authentication status
+app.get('/', (req, res) => {
+  const user = req.cookies.user;
+
+  if (user && user != "guest") {
+    res.redirect("/home");
+  } else {
+    res.redirect("/landing_page");
+  }
 });
 
-// Create a dynamic route for /hello/<name>, where name is any value provided by user
-// At the end of the URL
-// Responds to a 'GET' request
-app.get("/hello/:name", function(req, res) {
-    // req.params contains any parameters in the request
-    // We can examine it in the console for debugging purposes
-    console.log(req.params);
-    //  Retrieve the 'name' parameter and use it in a dynamically generated page
-    res.send("Hello " + req.params.name);
+// Render the home page for authenticated users, displaying their bookings
+app.get('/home', async (req, res, next) => {
+  const bookings = await bookingModel.getBookings(req.cookies.user);
+
+  res.render('HomePage', {
+    title: 'Home',
+    bookings,
+  });
 });
 
-// Start server on port 3000
-app.listen(3000,function(){
-    console.log(`Server running at http://127.0.0.1:3000/`);
+// Handle 404 errors
+app.use((req, res, next) => {
+  next(createError(404));
+});
+
+// Handle other errors
+app.use((err, req, res, next) => {
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+  res.status(err.status || 500);
+  res.render("error");
+});
+
+// Set the port number for the server
+const port = process.env.PORT || 3000;
+
+// Start the server and log a message with the port number and URL
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+  console.log(`http://localhost:${port}/`);
 });
