@@ -7,7 +7,7 @@ const path = require("path"); // Import the path library for file path manipulat
 const locationController = require("./controllers/locationController.js");
 const bookingController = require("./controllers/bookingController");
 const userController = require("./controllers/userController");
-const signupandloginController = require("./controllers/signupandloginController.js/index.js");
+//const signupandloginController = require("./controllers/signupandloginController.js");
 
 // Import models for interacting with the database
 const locationModel = require("./models/locationModel");
@@ -33,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Parse cookies from incoming requests
-app.use(cookieParser());
+//app.use(cookieParser());
 
 // Cookie setup middleware
 app.use(async (req, res, next) => {
@@ -57,7 +57,7 @@ app.use(async (req, res, next) => {
 app.use("/locations", locationController);
 app.use("/bookings", bookingController);
 app.use("/users", userController);
-app.use("/auth", signupandloginController);
+//app.use("/auth", signupandloginController);
 
 // Set the port number for the server
 const port = process.env.PORT || 3000;
