@@ -1,0 +1,23 @@
+- if bookings.length > 0
+  table
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Parking Space</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      - for booking in bookings
+        tr
+          td= booking.bookingId
+          td= booking.parkingSpace
+          td= booking.startTime
+          td= booking.endTime
+          td
+            a(href=`/bookings/cancel/${booking.bookingId}`) Cancel
+    </tbody>
+- else
+  p No bookings found.

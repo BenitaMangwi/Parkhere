@@ -1,10 +1,12 @@
-const express = require("express"); // Import the Express.js library
-const path = require("path"); // Import the path library for file path manipulation
+const express = require("express");
+const path = require("path");
+//const bodyParser = require('body-parser'); // Import the body-parser middleware for parsing request bodies
+//const cookieParser = require('cookie-parser'); // Import the cookieParser middleware for parsing cookies
 //const createError = require("http-errors"); // Import the createError function for handling HTTP errors
 //const cookieParser = require('cookie-parser'); // Import the cookieParser middleware for parsing cookies
 
 // Import controllers for handling different functionalities
-const locationController = require("./controllers/locationController.js");
+const locationController = require("./controllers/locationController");
 const bookingController = require("./controllers/bookingController");
 const userController = require("./controllers/userController");
 //const signupandloginController = require("./controllers/signupandloginController.js");
@@ -33,7 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Parse cookies from incoming requests
-//app.use(cookieParser());
+app.use(cookieParser());
 
 // Cookie setup middleware
 app.use(async (req, res, next) => {

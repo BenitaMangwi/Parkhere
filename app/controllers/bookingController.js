@@ -1,5 +1,5 @@
-const express = require("express");
-const bookingModel = require("../models/bookingModel");
+const express = require('express');
+const bookingModel = require('../models/bookingModel');
 
 const router = express.Router();
 
@@ -13,6 +13,24 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// Creating a new booking
+router.post("/", async (req, res, next) => {
+  try {
+    await bookingModel.createBooking(req.body);
+    res.redirect("/bookings");
+  } catch (err) {
+    next(err);
+  }
+});
 
+// Canceling a booking
+router.delete("/:bookingId", async (req, res, next) => {
+  try {
+    await bookingModel.cancelBooking(req.params.bookingId);
+    res.json({ message: "Booking canceled successfully" });
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
