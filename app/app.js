@@ -59,45 +59,6 @@ app.use("/bookings", bookingController);
 app.use("/users", userController);
 app.use("/auth", signupandloginController);
 
-// Render the landing page for unauthenticated users
-app.get("/landing_page", (req, res) => {
-  res.render("landing_page");
-});
-
-// Redirect users based on their authentication status
-app.get('/', (req, res) => {
-  const user = req.cookies.user;
-
-  if (user && user != "guest") {
-    res.redirect("/home");
-  } else {
-    res.redirect("/landing_page");
-  }
-});
-
-// Render the home page for authenticated users, displaying their bookings
-app.get('/home', async (req, res, next) => {
-  const bookings = await bookingModel.getBookings(req.cookies.user);
-
-  res.render('HomePage', {
-    title: 'Home',
-    bookings,
-  });
-});
-
-// Handle 404 errors
-app.use((req, res, next) => {
-  next(createError(404));
-});
-
-// Handle other errors
-app.use((err, req, res, next) => {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-  res.status(err.status || 500);
-  res.render("error");
-});
-
 // Set the port number for the server
 const port = process.env.PORT || 3000;
 
