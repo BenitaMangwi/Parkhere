@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  --D1-large-display-font-size: 3rem;
+  --D1-large-display-line-height: 4.5rem;
+  --D1-large-display-weight: 900;
+
+  --D2-medium-display-font-size: 2.25rem;
+  --D2-medium-display-line-height: 3.38rem;
+  --D2-medium-display-weight: 700;
+
+  --D3-Small-display-font-size: 1.5rem;
+  --D3-Small-display-line-height: 2.25rem;
+  --D3-Small-display-weight: 700;
+
+  --T1-large-title-font-size: 1.5rem;
+  --T1-large-title-line-height: 2.25rem;
+  --T1-large-title-weight: 700;
+
+  --T2-medium-title-font-size: 1rem;
+  --T2-medium-title-line-height: 1.5rem;
+  --T2-medium-title-weight: 700;
+
+  --T3-small-title-font-size: 1rem;
+  --T3-small-title-line-height: 1.5rem;
+  --T3-small-title-weight: 400;
+
+  --B1-large-body-font-size: 1.5rem;
+  --B1-large-body-line-height: 2.25rem;
+  --B1-large-body-weight: 400;
+
+  --B2-medium-body-font-size: 1.125rem;
+  --B2-medium-body-line-height: 1.69rem;
+  --B2-medium-body-weight: 400;
+
+  --B3-small-body-font-size: 1rem;
+  --B3-small-body-line-height: 1.5rem;
+  --B3-small-body-weight: 400;
+
+  --B4-little-body-font-size: 0.88rem;
+  --B4-little-body-line-height: 1.31rem;
+  --B4-little-body-weight: 400;
+
+  --Neutral100-background-color: #f6f6f6;
+  --Neutral200-secondary-color: #6b5b88;
+  --Neutral300-border-color: #ddd4ee;
+  --Neutral400-text-main: #2c1555;
+  --Primary-color: #572aa9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+  font-family: "Inter", sans-serif;
+  color: var(--Neutral400-text-main);
+  font-size: 0.88vw;
+}
+
+/*
+body {
+  	width: 100%;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-family: 'Inter', sans-serif, Arial, Helvetica;
+	background-color: #f0f0f0;
+}
+*/
+
+a {
+	text-decoration: none !important ;
+	color: #00B7FF;
+}
+
+.header {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15vw;
+  margin-top: 5vh;
+}
+
+#logo {
+  width: 12vw;
+}
+
+#profile {
+  height: 3vw;
+  width: 3vw;
+}
+
+/*********************************/
+
+.drop-down {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  background-color: lightgray;
+
+  -webkit-box-shadow: 3px 29px 63px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 29px 63px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 29px 63px 4px rgba(0, 0, 0, 0.1);
+}
+
+.drop-down > a {
+  background-color: white;
+  padding: 1vw;
+  color: black;
+}
+
+.drop-down > a:hover {
+  background-color: lightgray;
+  color: purple;
+}
+
+.dd-container:hover > .drop-down {
+  display: flex;
+}
+
+/*********************************/
+.nav {
+	display: grid !important;
+	grid-template-columns: repeat(3, 15vw);
+	justify-content: space-between;
+	margin: 5vh 15vw;
+}
+
+.nav > a > div {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  border-bottom: 4px solid #ddd4ee;
+  padding: 1vh 0;
+}
+
+.nav > a > div > p {
+  color: var(--Neutral200-secondary-color);
+  font-size: var(--B1-large-body-font-size);
+  line-height: var(--B1-large-body-line-height);
+  font-weight: var(--B1-large-body-weight);
+}
+
+.nav > a > div > img {
+  width: 2vw;
+  height: 2vw;
+  margin: 0 1vw;
+}
+
+.content {
+  width: 70vw;
+  margin: 0 15vw;
+}
+
+.greetings > p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #2c1555;
+  transition: color 5s ease-out;
+} 
+
+.greetings > p:hover {
+  color: #572aa9;
+}
