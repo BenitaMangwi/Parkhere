@@ -151,15 +151,4 @@ a {
   width: 70vw;
   margin: 0 15vw;
 }
-
-.greetings > p {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: #2c1555;
-  transition: color 5s ease-out;
-} 
-
-.greetings > p:hover {
-  color: #572aa9;
-}
+ 

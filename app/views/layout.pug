@@ -13,35 +13,32 @@ html
   body
     div.header
       a(href='/home')
-        img(src="/images/logo1.png" alt="expense tracker logo" id='logo')
+        img(src="/images/logo.png" alt="expense tracker logo" id='logo')
       
       div.dd-container
-        img(src="/images/user.png" id='profile')
+        img(src="/images/userIcon.png" id='profile')
         div.drop-down
           a(href='/landing_page') Landing Page
           if user == 'admin'
             a(href='/users') Users
           a(href='/auth/login') Switch User
           a(href='/auth/logout') Log Out
-
-    div.greetings 
-      p Hello, #{ user }!
     
     div.nav
       a(href='/home' class='nav-home')
         div.home
-          img(src='/images/home-icon.png')
+          img(src='/images/homeicon.png')
           p Home
       
-      a(href='/categories' class='nav-category')
-        div.category
-          img(src='/images/Categorize.png')
-          p Category
+      a(href='/locations' class='nav-location')
+        div.locations
+          img(src='/images/locationIcon.png')
+          p Locations
 
-      a(href='/transactions' class='nav-transaction')
-        div.transactions
-          img(src='/images/transaction.png')
-          p Transaction
+      a(href='/bookings' class='nav-bookings')
+        div.bookings
+          img(src='/images/bookingsIcon.png')
+          p Bookings
 
     div.content
       block content

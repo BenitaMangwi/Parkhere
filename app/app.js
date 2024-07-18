@@ -19,6 +19,18 @@ app.use('/locations', locationController);
 app.use('/bookings', bookingController);
 app.use('/users', userController);
 
+app.get("/landing_page", (req, res) => {
+  res.render("landing_page");
+});
+
+
+app.get("/home", function(req, res) {
+  res.send("home_page");
+});
+
+app.use((req, res, next) => {
+  next(createError(404));
+});
 
 // Start server on port 3000
 app.listen(3000,function(){
