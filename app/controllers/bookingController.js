@@ -6,7 +6,7 @@ const router = express.Router();
 // Reading bookings for a specific user
 router.get("/", async (req, res, next) => {
   try {
-    const bookings = await bookingModel.getBookings(req.cookies.user);
+    const bookings = await bookingModel.getBookings();
     res.render("bookings", { title: "Booking List", bookings });
   } catch (err) {
     next(err);

@@ -1,21 +1,15 @@
-const mysql = require('mysql');
+const db = require("../services/db");
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'your_username',
-  password: 'your_password',
-  database: 'your_database'
-});
 
-const getBookings = async (userId) => {
-  try {
-    const [rows] = await connection.query("SELECT * FROM Bookings WHERE user_id = ?", [userId]);
-    return rows;
-  } catch (error) {
-    console.error("Error fetching bookings:", error);
-    throw error;
-  }
-};
+const getBookings = async () => {
+    try {
+      const rows = await db.query("SELECT * FROM Bookings");
+      return rows;
+    } catch (error) {
+      console.error("Error fetching bookings:", error);
+      throw error;
+    }
+  };
 
 const createBooking = async (bookingData) => {
   try {
@@ -38,6 +32,5 @@ const cancelBooking = async (bookingId) => {
 module.exports = {
   getBookings,
   createBooking,
-  cancelBooking,
-  connection, // Expose the connection object
+  cancelBooking, // Expose the connection object
 };

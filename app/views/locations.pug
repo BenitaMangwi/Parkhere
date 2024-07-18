@@ -1,0 +1,21 @@
+- if locations.length > 0
+  table
+    <thead>
+      tr
+        th Location ID
+        th Name
+        th Description
+        th Actions
+    </thead>
+    <tbody>
+      - for location in locations
+        tr
+          td= location.locationId
+          td= location.name
+          td= location.description
+          td
+            a(href=`/locations/${location.locationId}`) View
+            a(href=`/locations/${location.locationId}/edit`) Edit
+            a(href=`/locations/${location.locationId}/delete`) Delete
+- else
+  p No locations found.
