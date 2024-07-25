@@ -1,6 +1,37 @@
 extends layout
 block content 
+  link(rel="stylesheet", href="./stylesheets/locations.css")
 
-  ul
-  each location in locations
-    li= location.address + ' - ' + location.name + ' - ' + location.availability + ' - ' + location.amenities
+  body
+    h1 Car Park App - Location List
+
+    // Location List
+    div.blue
+      // Sorting
+      div#sorting
+        p Sort
+        div#sortingDD
+          div.charging
+            h4 Charging 
+            p#chargingAsc.sort-option Ascending
+            p#chargingDesc.sort-option Descending
+          div.distance
+            h4 Distance
+            p#distanceAsc.sort-option Ascending
+            p#distanceDesc.sort-option Descending
+          div.price
+            h4 Price
+            p#priceAsc.sort-option Ascending
+            p#priceDesc.sort-option Descending
+
+    
+      ul#main
+        each location in Locations
+          li
+            div.leftie
+              div
+                p.name= location.name
+                p.address= location.address
+                p.amenities= location.amenities
+                p.availability= location.availability
+                p.price= location.price + "/hour"
