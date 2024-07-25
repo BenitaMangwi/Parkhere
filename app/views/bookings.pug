@@ -1,1 +1,6 @@
 extends layout 
+block content
+
+  ul
+  each booking in bookings
+    li= booking.start_time + ' - ' + booking.end_time + ' - ' + booking.total_price

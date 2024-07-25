@@ -1,1 +1,6 @@
 extends layout
+block content 
+
+  ul
+  each location in locations
+    li= location.address + ' - ' + location.name + ' - ' + location.availability + ' - ' + location.amenities
