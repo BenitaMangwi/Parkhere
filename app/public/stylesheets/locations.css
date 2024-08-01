@@ -9,10 +9,17 @@
 /****************************/
 
 h1 {
-	text-align: center;
+	text-align: left;
 	font-size: 1.5rem;
 	color: var(--Primary-color);
 	margin: 4vh 0;
+}
+
+p {
+    text-align: left;
+    font-size: 0.5rem;
+    color: #090C9B;
+    margin: 2vh 0;
 }
 
 /****************************/
@@ -38,11 +45,13 @@ h1 {
 /*************************/
 
 #sorting {
-	border-right: 1px solid #572AA9;
 	display: flex;
-	flex-direction: column;
-
+	cursor: pointer;
 	position: relative;
+}
+
+#sorting > p {
+    font-size: 1.0rem 
 }
 
 #sorting:hover > #sortingDD {
