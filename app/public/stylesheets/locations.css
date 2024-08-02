@@ -11,15 +11,14 @@
 h1 {
 	text-align: left;
 	font-size: 1.5rem;
-	color: var(--Primary-color);
+	color: #090C9B;
 	margin: 4vh 0;
 }
 
 p {
     text-align: left;
     font-size: 0.5rem;
-    color: #090C9B;
-    margin: 2vh 0;
+    margin: 0.5vh, 0;
 }
 
 /****************************/
