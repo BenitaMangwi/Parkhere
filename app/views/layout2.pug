@@ -1,0 +1,31 @@
+- let variable2 = variable1
+
+doctype html
+html
+  head
+    title= title
+    meta(chartset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='/stylesheets/layout2.css')
+    block style
+    
+    
+  body
+    div.nav
+      a(href='/home' class='nav-home')
+        div.home
+          img(src='/images/homeicon.png')
+          p Home
+      
+      a(href='/locations' class='nav-location')
+        div.locations
+          img(src='/images/locationIcon.png')
+          p Locations
+
+      a(href='/bookings' class='nav-bookings')
+        div.bookings
+          img(src='/images/bookingsIcon.png')
+          p Bookings
+
+    div.content
+      block content
