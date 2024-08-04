@@ -34,9 +34,7 @@ block content
                 div
                   p.name= location.name
                   p.address= location.address
-                  p.amenities= location.amenities
-                  p.availability= location.availability
-                  p.price= location.price + "/hour"
+                  p.availability= location.availability + ' | ' + img(src="/images/charging.png", alt="Charging Station") + ' ' + location.amenities
 
     else
       p There are no locations available.
