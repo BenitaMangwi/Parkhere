@@ -48,8 +48,14 @@ body {
   }
   
   li {
+
+
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	border: 1px;
+
 	list-style: none;
-	padding: 0 2vw;
 	padding-bottom: 4vh;
 
 	display: grid;
@@ -58,7 +64,9 @@ body {
 	align-items: center;
 	align-content: center;
 }
-
+  }
+  
+  
   .leftie {
 	display: flex;
 	align-items: center;
@@ -132,3 +140,4 @@ body {
 	width: fit-content;
   }
 
+  
