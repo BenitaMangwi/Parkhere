@@ -64,15 +64,14 @@ body {
   /* New Styles */
 
   .book-now {
-	margin-left: 10px; /* Adds a left margin to the button */
-	padding: 10px, 20px ; /* Adds padding to the button */
-	background-color: #333; 
+	padding: 10px 15px;
+	background-color: #333;
 	border: none;
-	margin-top: 20vh, 0;
+	margin-top: 50vh;
 	color: white;
 	font-size: 16px;
-	border-radius: 10px; /* Adds a slight border radius */
-	cursor: pointer; /* Indicates that the button is clickable */
+	border-radius: 10px;
+	cursor: pointer;
   }
 
   .book-now:hover {
