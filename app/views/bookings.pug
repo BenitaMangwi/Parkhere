@@ -12,10 +12,12 @@ block content
           li
             .left
               div
-                p.name #{booking.name}
-                p.address #{booking.address}
                 p.date #{booking.start_time}
             
+          div
+            p.name #{booking.name}
+            p.address #{booking.address}
+
             .right
               div
                 img(src="/images/bookmark.png", alt="save icon")
