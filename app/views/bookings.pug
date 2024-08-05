@@ -1,23 +1,24 @@
 extends layout2
 
 block content
-  link(rel="stylesheet", href="./stylesheets/locations.css")
+  link(rel="stylesheet", href="./stylesheets/bookings.css")
 
   body
     h1 Booking Details
 
     if bookings
       ul#main
-        each booking in bookings
+        each location in locations
           li
-            .left
-              div
-                p.date #{booking.start_time}
+            .leftie
+                div
+                  p.name= location.name
+                  p.address= location.address
+          
+          each booking in bookings
+            .leftie 
+              p.date #{booking.start_time}
             
-          div
-            p.name #{booking.name}
-            p.address #{booking.address}
-
             .right
               div
                 img(src="/images/bookmark.png", alt="save icon")
