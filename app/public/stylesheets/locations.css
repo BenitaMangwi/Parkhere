@@ -65,10 +65,10 @@ body {
 
   .book-now {
 	margin-left: 10px; /* Adds a left margin to the button */
-	padding: 10px, 10px ; /* Adds padding to the button */
+	padding: 10px, 20px ; /* Adds padding to the button */
 	background-color: #333; 
 	border: none;
-	margin-top: 10vh, 0;
+	margin-top: 20vh, 0;
 	color: white;
 	font-size: 16px;
 	border-radius: 10px; /* Adds a slight border radius */
