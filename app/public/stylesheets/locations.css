@@ -45,8 +45,7 @@ body {
 	padding: 20px;
 	margin-bottom: 15px;
 	border-radius: 5px;
-	border: 1px;
-	
+	border: 1px #333;
   }
   
   
@@ -67,7 +66,7 @@ body {
 	padding: 10px 15px;
 	background-color: #333;
 	border: none;
-	margin-top: 50vh;
+	margin-top: 50vh 0;
 	color: white;
 	font-size: 16px;
 	border-radius: 10px;
@@ -113,9 +112,5 @@ body {
   }
 
 
-  li > div {
-	width: 10vw;
-	width: fit-content;
-  }
 
   
