@@ -7,23 +7,16 @@ body {
 	background-color: #f4f4f4;
   }
   
-  h1,
-  h4,
-  p {
-	margin: 0;
-  }
-  
   h1 {
 	font-size: 24px;
 	color: #333;
-	padding: 20px;
+	padding: 5px;
   }
   
   p {
 	font-size: 16px;
 	color: #333;
-	padding: 20px;
-	margin-bottom: 5px; 
+	padding: 5px;
   }
   
   /* Blue Container */
@@ -48,22 +41,12 @@ body {
   }
   
   li {
-
-
 	background-color: #fff;
 	padding: 20px;
+	margin-bottom: 15px;
 	border-radius: 5px;
 	border: 1px;
-
-	list-style: none;
-	padding-bottom: 4vh;
-
-	display: grid;
-	grid-template-columns: 12vw 20vw 10vw 10vw;
-	justify-content: space-between;
-	align-items: center;
-	align-content: center;
-}
+	
   }
   
   
@@ -73,20 +56,16 @@ body {
 	margin-bottom: 5px; 
   }
   
-  .leftie p {
-	margin: 0 10px;
-  }
-
-  
-  .price {
-	font-weight: bold;
+  .leftie > div > p {
+	margin: 0;
+	line-height: 1.5
   }
 
   /* New Styles */
 
   .book-now {
 	margin-left: 10px; /* Adds a left margin to the button */
-	padding: 10px 20px; /* Adds padding to the button */
+	padding: 10px, 10px ; /* Adds padding to the button */
 	background-color: #333; 
 	border: none;
 	margin-top: 10vh, 0;
@@ -136,7 +115,7 @@ body {
 
 
   li > div {
-	width: 15vw;
+	width: 10vw;
 	width: fit-content;
   }
 
