@@ -10,23 +10,21 @@ block content
       // Location List
       div.blue
         // Sorting
-        div#sorting
-          p ...
+        div(class='dropdown')
+          button(class='menu-btn') ...
+
           div#sortingDD
             div.charging
               h4 Charging 
               p#chargingAsc.sort-option Ascending
               p#chargingDesc.sort-option Descending
-            div.distance
-              h4 Distance
-              p#distanceAsc.sort-option Ascending
-              p#distanceDesc.sort-option Descending
             div.price
               h4 Price
               p#priceAsc.sort-option Ascending
               p#priceDesc.sort-option Descending
 
         
+            
         ul#main
           each location in locations
             li
@@ -38,5 +36,6 @@ block content
                   p.price= "£" + location.price + "/hour"
                   a.book-now(href="/booking/" + location.id) Book Now
 
+                  
     else
       p There are no locations available.
