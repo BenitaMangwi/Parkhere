@@ -12,10 +12,7 @@ block content
           li
             .left
               div
-                p.name #{booking.location.name}
-                p.address #{booking.location.address}
-                p.date #{booking.start_time}
-            
+                p.date= booking.start_time ? booking.start_time.toISOString().split('T')[0] : ''
             
             .right
               div
