@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Available Parkings in London
+
+  div(id="map", style="height: 500px; width: 100%;")
+
+  script(src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer)
+  script(src="./services/map.js")

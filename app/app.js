@@ -25,7 +25,7 @@ app.get("/landing_page", (req, res) => {
 
 
 app.get("/home", function(req, res) {
-  res.render("home_page");
+  res.render("home");
 });
 
 app.get("/db_test", function(req, res) {
