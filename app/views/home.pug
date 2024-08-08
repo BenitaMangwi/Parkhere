@@ -3,10 +3,12 @@ extends layout
 
 block content
   link(rel="stylesheet", href="./stylesheets/home.css")
+  script(src="https://kit.fontawesome.com/9b8a7e18a0.js")
 
   h1 Where do you want
-  h1 to park today?
+  h1 to park today
 
+  
   body
   .search_box
     .search
@@ -15,8 +17,7 @@ block content
         .text Anywhere
       .line
       .text_and-icon
-        input.search_text#search_text(type="text", placeholder="Search by Company, Keyword or the designation ..")
-        i.fas.fa-search.search_icon
+        input.search_text#search_text(type="text", placeholder="Search by Postcode or address ...")
 
   div(id="map", style="height: 600px; width: 80%;")
 
