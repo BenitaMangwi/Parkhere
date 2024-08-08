@@ -1,11 +1,13 @@
 extends layout
 
+
 block content
+  link(rel="stylesheet", href="./stylesheets/home.css")
+
   h1 Available Parkings in London
 
-  div(id="map", style="height: 500px; width: 100%;")
+  div#maps (id="map", style="height: 500px; width: 100%;")
 
   script(src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer)
-  script(src="./services/map.js" defer)
+  script(src="./scripts/map.js")
 
-  
