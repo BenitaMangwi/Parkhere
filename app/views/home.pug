@@ -4,10 +4,22 @@ extends layout
 block content
   link(rel="stylesheet", href="./stylesheets/home.css")
 
-  h1 Available Parkings in London
+  h1 Where do you want
+  h1 to park today?
 
-  div#maps (id="map", style="height: 500px; width: 100%;")
+  body
+  .search_box
+    .search
+      .select_area
+        i.fas.fa-map-marker-alt.map_icon
+        .text Anywhere
+      .line
+      .text_and-icon
+        input.search_text#search_text(type="text", placeholder="Search by Company, Keyword or the designation ..")
+        i.fas.fa-search.search_icon
 
-  script(src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer)
+  div(id="map", style="height: 600px; width: 80%;")
+
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkPjRJiiqhUZFJ4T_OJULzHnxlVXHzxEo&callback=initMap" async defer)
   script(src="./scripts/map.js")
 
