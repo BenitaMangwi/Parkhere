@@ -1,7 +1,7 @@
 extends layout2
 
 block content
-  link(rel="stylesheet", href="./stylesheets/locations.css")
+  link(rel="stylesheet", href="./stylesheets/bookings.css")
 
   body
     h1 Booking Details
@@ -12,13 +12,24 @@ block content
           li
             .left
               div
+                p.name= booking.name
+                p.address= booking.address
                 p.date= booking.start_time ? booking.start_time.toISOString().split('T')[0] : ''
+                p.time= booking.start_time ? booking.start_time.toISOString().split('T')[1].split('.')[0] : ''
+                
             
             .right
               div
-                img(src="/images/bookmark.png", alt="save icon")
-                p.dots ...
-                  a(href=`/bookings/${booking.booking_id}/delete`) Delete
-                  a(href=`/bookings/${booking.booking_id}/update`) Update
-    else
+
+                div(class="drop-down")
+                  button(class='menu-btn') ...
+
+                    div(class='dropdown-content')
+                      a(href=`/bookings/${booking.booking_id}/delete`) Delete
+                      a(href=`/bookings/${booking.booking_id}/update`) Update
+    
+    
+    
+    
+    else   
       p No bookings

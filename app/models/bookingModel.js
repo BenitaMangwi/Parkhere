@@ -20,9 +20,9 @@ const createBooking = async (bookingData) => {
   }
 };
 
-const cancelBooking = async (bookingId) => {
+const cancelBooking = async (booking_id) => {
   try {
-    await connection.query("DELETE FROM Bookings WHERE booking_id = ?", [bookingId]);
+    await connection.query("DELETE FROM Bookings WHERE booking_id = ?", [booking_id]); // Use booking_id parameter
   } catch (error) {
     console.error("Error canceling booking:", error);
     throw error;
