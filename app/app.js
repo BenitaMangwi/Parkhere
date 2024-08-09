@@ -4,7 +4,7 @@ const path = require('path'); // Added for serving static files
 const locationController = require('./controllers/locationController');
 const bookingController = require('./controllers/bookingController');
 const userController = require('./controllers/userController');
-const signupandloginController = require('./signupandloginController');
+const signupandloginController = require('./controllers/signupandloginController');
 
 const app = express();
 
