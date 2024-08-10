@@ -1,9 +1,45 @@
 block content
 
   link(rel="stylesheet", href="./stylesheets/landing_page.css")
-
   body
-    footer.footer
+    header
+      h1(class="logo") Company Name
+      nav
+        ul
+          li
+            a(href="/auth/login" class="login_in_button") Login
+          li
+            a(href="/auth/signup" class="sign_up_button") SignUp
+          li
+            a(href="/auth/joinUs" class="join_us") Rent your space
+    main
+      section#hero
+        h2(class="hero-title") Welcome to our amazing product!
+        p(class="hero-description") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec enim non diam luctus suscipit.
+        a(href="#", class="hero-button") Learn More
+      section#features
+        h3 Features
+        ul
+          li Feature 1
+          li Feature 2
+          li Feature 3
+      section#pricing
+        h3 Pricing
+        ul
+          li Plan 1
+          li Plan 2
+          li Plan 3
+      section#contact
+        h3 Contact Us
+        form(action="#", method="post")
+          input(type="text", name="name", placeholder="Name")
+          input(type="email", name="email", placeholder="Email")
+          textarea(name="message", placeholder="Message")
+          button(type="submit") Send
+    
+    
+    footer
+      footer.footer
       .container
         .row
           .footer-col
@@ -16,18 +52,18 @@ block content
               li
                 a(href="#") privacy policy
               li
-                a(href="#") affiliate program
+                a(href="#") affiliate platforms
           .footer-col
             h4 get help
             ul
               li
                 a(href="#") FAQ
               li
-                a(href="#") shipping
+                a(href="#") Route
               li
-                a(href="#") returns
+                a(href="#") user guide
               li
-                a(href="#") order status
+                a(href="#") blog posts
               li
                 a(href="#") payment options
           .footer-col
