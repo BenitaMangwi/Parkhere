@@ -83,7 +83,7 @@ body {
 
 .formbold-form-input {
   width: 100%;
-  padding: 13px 20px;
+  padding: 0;
   border-radius: 5px;
   border: 1px solid #B4C5E4;
   background: #ffffff;
