@@ -8,6 +8,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  align-items: center;
 }
 
 .formbold-mb-3 {
@@ -26,15 +27,11 @@ body {
   stroke: currentColor;
 }
 
-#supportCheckbox:checked ~ div span {
-  opacity: 1;
-}
-
 .formbold-main-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px;
+  padding: 10px;
 }
 
 .formbold-form-wrapper {
@@ -42,12 +39,15 @@ body {
   max-width: 570px;
   width: 100%;
   background: white;
-  padding: 40px;
 }
 
-.formbold-img {
-  margin-bottom: 45px;
+.head-image{
+    margin-bottom: 0;
+    height: 70%;
+    width: 70%;
+
 }
+
 
 .formbold-form-title {
   margin-bottom: 30px;
@@ -56,8 +56,8 @@ body {
 .formbold-form-title h2 {
   font-weight: 600;
   font-size: 28px;
-  line-height: 34px;
-  color: #07074d;
+  line-height: 20px;
+  color: #090C9B;
 }
 
 .formbold-form-title p {
@@ -82,7 +82,7 @@ body {
   width: 100%;
   padding: 13px 22px;
   border-radius: 5px;
-  border: 1px solid #dde3ec;
+  border: 1px solid #B4C5E4;
   background: #ffffff;
   font-weight: 500;
   font-size: 16px;
@@ -93,9 +93,21 @@ body {
 
 .formbold-form-input:focus {
   border-color: #6a64f1;
-  box-shadow: 0px 3px
 }
 
-.formbold-btn{
-    
+.sign-up-login-button {
+    text-align: center;
+    width: 100%;
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #090C9B;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+}
+
+.back-button{
+    width: 2rem;
+    margin-left: 50px;
 }
