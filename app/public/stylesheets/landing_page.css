@@ -108,7 +108,7 @@
   }
 
   .hero-button-get-started {
-    background-color: #090C9B;
+    background-color: #3C3744;
     font-size: 18px;
     padding: 0.5rem 1.2rem;
     border-radius: 0.3rem;
@@ -120,38 +120,38 @@
     color: #ddd4ee;
   }
 
-  .why-expense-tracker {
+  .why-us {
     display: flex;
     flex-direction: column;
     row-gap: 4rem;
     padding: 4rem 4rem 4rem 4rem;
   }
 
-  .why-expense-tracker-main-subtext-container {
+  .why-us-container {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
   }
 
-  .why-expense-tracker-title {
+  .why-us-title {
     font-size: var(--D2-medium-display-font-size);
     font-weight: var(--D2-medium-display-weight);
     line-height: var(--B2-medium-body-line-height);
   }
 
-  .why-expense-tracker-subtext {
+  .why-us-subtext {
     font-size: var(--B2-medium-body-font-size);
     font-weight: var(--B2-medium-body-weight);
     line-height: var(--B2-medium-body-line-height);
   }
 
-  .why-expense-tracker-inner-contents {
+  .why-us-inner-contents {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
 
-  .why-expense-tracker-inner-content {
+  .why-us-inner-content {
     display: flex;
     flex-direction: column;
     row-gap: 0.5rem;
@@ -163,20 +163,20 @@
     background-repeat: no-repeat;
   }
 
-  .why-expense-tracker-inner-content-text-container {
+  .why-us-inner-content-text-container {
     display: flex;
     flex-direction: column;
     row-gap: 0.2rem;
     width: 19rem;
   }
 
-  .why-expense-tracker-inner-content-text-title {
+  .why-us-inner-content-text-title {
     font-size: var(--D3-Small-display-font-size);
     font-weight: var(--D3-Small-display-weight);
     line-height: var(--D3-Small-display-line-height);
   }
 
-  .why-expense-tracker-inner-content-text-subtext {
+  .why-us-inner-content-text-subtext {
     font-size: var(--B3-small-body-font-size);
     font-weight: var(--B3-small-body-weight);
     line-height: var(--B3-small-body-line-height);
