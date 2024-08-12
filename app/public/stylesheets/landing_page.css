@@ -183,96 +183,10 @@
     line-height: 20px;
   }
 
-  .why-we-do {
-    display: flex;
-    flex-direction: column;
-    row-gap: 4rem;
-    padding: 2rem 4rem 4rem 4rem;
-  }
-
-  .why-we-do-main-subtext-container {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    align-items: center;
-  }
-
-  .why-we-do-title {
-    font-size: var(--D2-medium-display-font-size);
-    font-weight: var(--D2-medium-display-weight);
-    line-height: var(--B2-medium-body-line-height);
-  }
-
-  .why-we-do-subtext {
-    font-size: var(--B2-medium-body-font-size);
-    font-weight: var(--B2-medium-body-weight);
-    line-height: var(--B2-medium-body-line-height);
-  }
-
-  .why-we-do-inner-contents {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .why-we-do-inner-content-first {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #3a0699;
-    width: 19rem;
-    height: 20rem;
-    padding: 2rem 2rem;
-    border-radius: 0.5rem;
-  }
-
-  .why-we-do-inner-content-second {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #4104b0;
-    width: 19rem;
-    height: 20rem;
-    padding: 2rem 2rem;
-    border-radius: 0.5rem;
-  }
-
-  .why-we-do-inner-content-third {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #572aa9;
-    width: 19rem;
-    height: 20rem;
-    padding: 2rem 2rem;
-    border-radius: 0.5rem;
-  }
-
-  .why-we-do-inner-content-text-title-top {
-    color: var(--Neutral100-background-color);
-    font-size: var(--D2-medium-display-font-size);
-    font-weight: var(--D2-medium-display-weight);
-    line-height: var(--D2-medium-display-line-height);
-  }
-
-  .why-we-do-inner-content-text-title {
-    color: var(--Neutral100-background-color);
-    font-size: var(--T3-small-title-font-size);
-    font-weight: var(--T3-small-title-weight);
-    line-height: var(--T3-small-title-line-height);
-  }
-
-  .why-we-do-inner-content-text-subtext {
-    color: var(--Neutral100-background-color);
-    font-size: var(--B4-little-body-font-size);
-    font-weight: var(--B4-little-body-weight);
-    line-height: var(--B4-little-body-line-height);
-  }
-
   .privacy {
     display: flex;
     justify-content: space-between;
-    padding: 2rem 8rem 4rem 8rem;
+    padding: 2rem 10rem 4rem 10rem;
     align-items: center;
   }
 
@@ -280,6 +194,18 @@
     display: flex;
     flex-direction: column;
     row-gap: 0.5rem;
+  }
+
+  .privacy-main-subtext-container > h4 {
+    color: #090C9B;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .privacy-main-subtext-container > p {
+    color: #3C3744;
+    font-weight: bold;
+    font-size: 14px;
   }
 
   .padlock {
