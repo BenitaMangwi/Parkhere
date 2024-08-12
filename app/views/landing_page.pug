@@ -8,10 +8,11 @@ html
     link(rel='stylesheet' href='/stylesheets/landing_page.css')
   body
     .home
-      img(src='./images/landing.jpg', alt='landing_page', class='home-pic')
+      img(src='/images/landingpic.jpg', alt='landing_page', class='home-pic')
       .navbar
-        a(href=user!="admin"?"/home":"")
+        a(href= "/home")
           img(src="./images/logo.png" alt="main-logo" class="logo-nav") 
+
         .logIn-signUp-button-container
           a(href="/auth/login" class="logIn-navbar-text") 
             button(type="button" class="logIn-navbar") Log In 
@@ -19,12 +20,13 @@ html
             button(type="button" class="signUp-navbar") Sign Up
           a(href="/auth/Register" class="signUp-navbar-text") 
             button(type="button" class="signUp-navbar") Register your parking
+            
       .hero-left-container 
         .hero-left-text-container 
           h1.hero-left-text-main Find and book affordable parking spaces in minutes.
           p.hero-left-text-subtext Say goodbye to the stress of finding parking in London.
-        a(href="/auth/signup" class="hero-button-get-started-text") 
-          button(type="button" class="hero-button-get-started") Get Started
+          a(href="/auth/signup" class="hero-button-get-started-text") 
+            button(type="button" class="hero-button-get-started") Get Started
     .why-expense-tracker 
       .why-expense-tracker-main-subtext-container 
         h2.why-expense-tracker-title Why Expense Tracker ?
