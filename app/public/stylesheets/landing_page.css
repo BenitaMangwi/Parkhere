@@ -29,7 +29,7 @@
   .home{
     /* background-image: url(hero-expenseTracker.png); */
     width: 100%;
-    height: 100%;
+    min-height: 80vh;
     padding: 3rem 5rem 8rem 5rem;
     flex-direction: column;
     row-gap: 4rem;
@@ -51,7 +51,7 @@
   }
 
   .logo-nav {
-    width: 8rem;
+    width: 10rem;
   }
 
   .logIn-signUp-button-container {
@@ -91,11 +91,12 @@
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
+    padding-top: 20px;
   }
 
   .hero-left-text-main {
     color:#090C9B;
-    font-size: 32px;
+    font-size: 40px;
     font-style: bold;
     width: 48%;
 
@@ -103,23 +104,97 @@
 
   .hero-left-text-subtext {
     color:#3C3744;
-    font-size: 14px;
+    font-size: 24px;
     width: 30%;
+    padding-top: 10px;
   }
 
   .hero-button-get-started {
     background-color: #3C3744;
     font-size: 18px;
-    padding: 0.5rem 1.2rem;
+    padding: 1.0rem 1.2rem;
     border-radius: 0.3rem;
     border: 0px;
-    padding: 0.5rem 1.2rem;
     border: none;
     outline: none;
     border-radius: 0.3rem;
     color: #ffffff;
   }
 
+  .hero-button-get-started:hover {
+    background-color: #3066be;
+    color:#fff;
+  }
+
+.about-us{
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-section{
+    background: url(/images/pic6.svg) no-repeat left;
+    background-size: 80%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.inner-container{
+    width: 40%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 80px;
+
+
+}
+
+.inner-container h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.text{
+    font-size: 13px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 50px 20px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+}
   .why-us {
     display: flex;
     flex-direction: column;
@@ -199,13 +274,13 @@
   .privacy-main-subtext-container > h4 {
     color: #090C9B;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 32px;
   }
 
   .privacy-main-subtext-container > p {
     color: #3C3744;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .padlock {
@@ -237,7 +312,7 @@ ul{
 }
 .footer{
   background-color: #3C3744;
-    padding: 150px 0;
+    padding: 15px 0;
 }
 .footer-col{
    width: 25%;
@@ -310,9 +385,8 @@ ul{
 
 .snip1533 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  color: #9e9e9e;
+  color: #3C3744;
   display: inline-block;
-  font-family: 'Roboto', Arial, sans-serif;
   font-size: 16px;
   margin: 35px 10px 10px;
   max-width: 310px;
@@ -322,7 +396,7 @@ ul{
   width: 100%;
   background-color: #ffffff;
   border-radius: 5px;
-  border-top: 5px solid #d2652d;
+  border-top: 5px solid #3066be;
 }
 
 .snip1533 *,
@@ -343,9 +417,8 @@ ul{
   background-color: #fff;
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  color: #d2652d;
+  color: #090C9B;
   content: "\f10e";
-  font-family: 'FontAwesome';
   font-size: 32px;
   font-style: normal;
   left: 50%;
@@ -375,30 +448,17 @@ ul{
   margin: 0 0 20px;
 }
 
-ol { padding-left: 50px; }
-li { 
-  color: #4F4F4F; 
+.alternating-colors{ padding-left: 70px; }
+
+.list{
+  color: #3C3744; 
   padding-left: 16px;
   margin-top: 24px;
   position: relative;
   font-size: 16px;
   line-height: 20px;
-  
-  &:before {
-    content: '';
-    display: block;
-    height: 42px;
-    width: 42px;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-    position: absolute; 
-    left: -46px;
-  }
 }
 
 strong { color: #292929; }
 
-ol.alternating-colors { 
-  li:nth-child(odd):before { border-color: #0BAD02; }
-  li:nth-child(even):before { border-color: #2378D5; }
-}
+
