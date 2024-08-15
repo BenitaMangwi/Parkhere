@@ -16,15 +16,15 @@ router.get("/", async (req, res, next) => {
 });
 
 // Creating a new booking
-router.post("/", async (req, res, next) => {
-  try {
-    await bookingModel.createBooking(req.body);
-    res.redirect("/bookings");
-  } catch (err) {
-    next(err);
-  }
+router.get("/booking", async (req, res, next) => {
+  res.render("new_booking", { title: "New Booking" });
 });
 
+router.post("/booking", async (req, res, next) => {
+  console.log(req.body);
+  await bookingModel.createBooking(req.body.booking_id);
+  res.redirect("/bookings");
+});
 // Canceling a booking
 
 router.delete("/:booking_id", async (req, res, next) => {

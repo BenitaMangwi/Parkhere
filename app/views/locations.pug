@@ -18,13 +18,10 @@ block content
               h4 Charging 
               p#chargingAsc.sort-option Ascending
               p#chargingDesc.sort-option Descending
-<<<<<<< HEAD
-=======
             div.distance
               h4 Distance 
               p#distanceAsc.sort-option Ascending
               p#distanceDesc.sort-option Descending
->>>>>>> 656e31129b8556bc5742c389834169c724e42dd2
             div.price
               h4 Price
               p#priceAsc.sort-option Ascending
@@ -41,7 +38,7 @@ block content
                   p.address= location.address
                   p.amenities= location.amenities + ' | ' + location.availability
                   p.price= "£" + location.price + "/hour"
-                  a.book-now(href="/booking/" + location.id) Book Now
+                  a.book-now(href="/bookings/booking" ) Book Now
 
                   
     else

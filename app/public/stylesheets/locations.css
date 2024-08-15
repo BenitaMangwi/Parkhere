@@ -60,13 +60,13 @@ body {
 	line-height: 1.5
   }
 
-  /* New Styles */
+ 
 
   .book-now {
 	padding: 10px 15px;
 	background-color: #333;
 	border: none;
-	margin-top: 50vh 0;
+	margin-top: 70vh 0;
 	color: white;
 	font-size: 16px;
 	border-radius: 10px;
@@ -77,13 +77,27 @@ body {
 	opacity: 0.8; /* Changes the opacity on hover */
   }
 
+  .name{
+	color: #090C9B;
+	font-style: bold ;
+  }
+
+  .amenities{
+	color: #219EBC
+  }
+
+  .price{
+	padding-bottom: 10px;
+  }
   .dropdown {
 	position: relative;
 	display: inline-block;
+	
   }
   
   .menu-btn {
 	cursor: pointer; 
+	color: #090C9B;
   }
   
   #sortingDD {
