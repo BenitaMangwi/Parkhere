@@ -1,4 +1,3 @@
-// Assuming the locationController object has a getLocations() method that returns an array of parking space objects
 const locationController = require('./controllers/locationController');
 
 function initMap() {
@@ -9,15 +8,15 @@ function initMap() {
 
   async function displayParkingSpaces() {
     try {
-      const locations = await locationController.getLocations(); // Fetch data from your database
+      const locations = await locationController.getLocations(); // Fetch data from database
   
       locations.forEach((location) => { // Iterate over the locations array
-        if (location.availability === "Available") { // Filter for available parking spaces
+        if (location.availability === "Available") { 
           const marker = new google.maps.Marker({
             position: { lat: location.latitude, lng: location.longitude },
             map: map,
             title: location.name,
-            icon: "https://maps.google.com/mapfiles/kml/pal4/icon28.png",
+            icon: "/images/marker.svg",
           });
   
           // Add an info window to display parking details
@@ -38,7 +37,6 @@ function initMap() {
       });
     } catch (error) {
       console.error("Error fetching parking spaces:", error);
-      // Handle the error gracefully, e.g., display an error message to the user
     }
   }
   displayParkingSpaces
