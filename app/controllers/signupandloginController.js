@@ -1,12 +1,12 @@
 const express = require("express");
-const bcrypt = require("bcryptjs");
+//const bcrypt = require("bcryptjs");
 const router = express.Router();
 
 const userModel = require("../models/userModel");
 
 // Sign Up
 router.get("/signup", function (req, res) {
-  res.render("signupandlogin", {
+  res.render("signup", {
     current_view: "signup",
     title: "Sign Up",
   });
@@ -20,7 +20,7 @@ router.post("/signup", async function (req, res) {
   );
 
   if (existingUser) {
-    res.render("signupandlogin", {
+    res.render("signup", {
       current_view: "signup",
       title: "Sign Up",
       errors: `User Already Exists`,
@@ -46,7 +46,7 @@ router.post("/signup", async function (req, res) {
 
 // Login
 router.get("/login", function (req, res) {
-  res.render("signupandlogin", {
+  res.render("login", {
     current_view: "login",
     title: "Log In",
   });

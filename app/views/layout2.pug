@@ -7,24 +7,11 @@ html
     meta(chartset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="shortcut icon", href="./images/favicon1.png", type="image/x-icon")
-    link(rel='stylesheet', href='/stylesheets/layout.css')
+    link(rel='stylesheet', href='/stylesheets/layout2.css')
     block style
     
     
   body
-    div.header
-      a(href='/home')
-        img(src="/images/logo.png" alt="expense tracker logo" id='logo')
-      
-      div.dd-container
-        img(src="/images/userIcon.png" id='profile')
-        div.drop-down
-          a(href='/landing_page') Landing Page
-          if user == 'admin'
-            a(href='/users') Users
-          a(href='/auth/login') Switch User
-          a(href='/auth/logout') Log Out
-    
     div.nav
       a(href='/home' class='nav-home')
         div.home
@@ -43,3 +30,4 @@ html
 
     div.content
       block content
+      

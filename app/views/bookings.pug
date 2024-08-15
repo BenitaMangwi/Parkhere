@@ -1,6 +1,35 @@
-extends layout 
-block content
+extends layout2
 
-  ul
-  each booking in bookings
-    li= booking.start_time + ' - ' + booking.end_time + ' - ' + booking.total_price
+block content
+  link(rel="stylesheet", href="./stylesheets/bookings.css")
+
+  body
+    h1 Booking Details
+
+    if bookings
+      ul#main
+        each booking in bookings
+          li
+            .left
+              div
+                p.name= booking.name
+                p.address= booking.address
+                p.date= booking.start_time ? booking.start_time.toISOString().split('T')[0] : ''
+                p.time= booking.start_time ? booking.start_time.toISOString().split('T')[1].split('.')[0] : ''
+                
+            
+            .right
+              div
+
+                div(class="drop-down")
+                  button(class='menu-btn') ...
+
+                    div(class='dropdown-content')
+                      a(href=`/bookings/${booking.booking_id}/delete`) Delete
+                      a(href=`/bookings/${booking.booking_id}/update`) Update
+    
+    
+    
+    
+    else   
+      p No bookings

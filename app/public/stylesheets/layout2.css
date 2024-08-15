@@ -12,7 +12,7 @@
 
 a {
 	text-decoration: none !important ;
-	color: rgb(68, 65, 65) ;
+	color: #3C3744;
 }
 
 .header {
@@ -25,39 +25,6 @@ a {
 
 #logo {
   width: 12vw;
-}
-
-#profile {
-  height: 3vw;
-  width: 3vw;
-}
-
-/*********************************/
-
-.drop-down {
-  display: none;
-  position: absolute;
-  flex-direction: column;
-  background-color: lightgray;
-
-  -webkit-box-shadow: 3px 29px 63px 4px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 3px 29px 63px 4px rgba(0, 0, 0, 0.1);
-  box-shadow: 3px 29px 63px 4px rgba(0, 0, 0, 0.1);
-}
-
-.drop-down > a {
-  background-color: white;
-  padding: 1vw;
-  color: black;
-}
-
-.drop-down > a:hover {
-  background-color: lightgray;
-  color: #090C9B;
-}
-
-.dd-container:hover > .drop-down {
-  display: flex;
 }
 
 /*********************************/

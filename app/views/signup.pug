@@ -9,25 +9,30 @@ html(lang="en")
   body
     .formbold-main-wrapper
       a(href="/landing_page")
-        img(src="/images/arrow-up-circle.png" alt="back-button" class="back-button")
+        img(src="/images/arrow-up-circle.png" alt="expenseTracker-back-button" class="back-button")
 
       .formbold-form-wrapper
         img(src="/images/house.jpg" alt="header-image" class="head-image")
 
         .formbold-form-title
-          h2 Welcome back
-          p Login and say goodbye to the stress of finding parking
+          h2 Get Started Now
+          p Sign in and say goodbye to the stress of finding parking
 
         form(method="POST" class="login-form")
           .formbold-input-flex
             div
               label(for="firstname" class="formbold-form-label") First name
               input(type="text" name="firstname" id="firstname" class="formbold-form-input")
-           
+            div
+              label(for="lastname" class="formbold-form-label") Last name
+              input(type="text" name="lastname" id="lastname" class="formbold-form-input" required)
           .formbold-input-flex
             div
               label(for="email" class="formbold-form-label") Email
               input(type="email" name="email" id="email" class="formbold-form-input" required)
+            div
+              label(for="phone" class="formbold-form-label") Phone number
+              input(type="text" name="phone" id="phone" class="formbold-form-input" required)
           
           .formbold-input-flex
             div
@@ -40,6 +45,6 @@ html(lang="en")
               button(type="submit" class='sign-up-login-button') Sign In
 
           .texts
-            p.main-text Don't have an account yet?
-            a(href="/auth/signup")
-              p.sub-text Sign Up
+            p.main-text Already have an account?
+            a(href="/auth/login")
+              p.sub-text Log In

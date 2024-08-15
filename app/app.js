@@ -3,7 +3,8 @@ const path = require('path'); // Added for serving static files
 
 const locationController = require('./controllers/locationController');
 const bookingController = require('./controllers/bookingController');
-const userController = require('./controllers/userController')
+const userController = require('./controllers/userController');
+const signupandloginController = require('./controllers/signupandloginController');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/locations', locationController);
 app.use('/bookings', bookingController);
 app.use('/users', userController);
+app.use('/auth' , signupandloginController );
 
 app.get("/landing_page", (req, res) => {
   res.render("landing_page");
@@ -25,7 +27,7 @@ app.get("/landing_page", (req, res) => {
 
 
 app.get("/home", function(req, res) {
-  res.render("home_page");
+  res.render("home");
 });
 
 app.get("/db_test", function(req, res) {

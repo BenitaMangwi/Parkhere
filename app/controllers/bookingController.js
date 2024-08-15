@@ -1,5 +1,6 @@
 const express = require('express');
 const bookingModel = require('../models/bookingModel');
+const locationModel = require('../models/locationModel');
 
 const router = express.Router();
 
@@ -7,7 +8,8 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     const bookings = await bookingModel.getBookings();
-    res.render("bookings", { title: "Booking List", bookings });
+    const locations = await locationModel.getLocations(); // Assuming you have a locationModel
+    res.render("bookings", { title: "Booking List", bookings, locations });
   } catch (err) {
     next(err);
   }
@@ -24,9 +26,10 @@ router.post("/", async (req, res, next) => {
 });
 
 // Canceling a booking
-router.delete("/:bookingId", async (req, res, next) => {
+
+router.delete("/:booking_id", async (req, res, next) => {
   try {
-    await bookingModel.cancelBooking(req.params.bookingId);
+    await bookingModel.cancelBooking(req.params.booking_id); // Use req.params.bookingId
     res.json({ message: "Booking canceled successfully" });
   } catch (err) {
     next(err);
