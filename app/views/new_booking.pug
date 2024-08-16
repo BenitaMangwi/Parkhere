@@ -7,9 +7,13 @@ block content
     div.formbold-main-wrapper
       div.formbold-form-wrapper
         img.image(src="/images/image2.jpg", alt="Image")
-        form(action="https://formbold.com/s/#{FORM_ID}" method="POST")
+        form(action="/bookings/booking" method="POST")
           div.flex.flex-wrap.formbold--mx-3
-           
+
+            if location.parking_space_id === itemId
+              div.booking-details
+              p.name= location.name
+              p.address= location.address          
           
           div.flex.flex-wrap.formbold--mx-3
             div.w-full.sm-w-half.formbold-px-3
@@ -22,7 +26,6 @@ block content
                 label.formbold-form-label To
                 input.formbold-form-input(type="date" name="date" id="date")
             
-
              
           div.flex.flex-wrap.formbold--mx-3
             div.w-full.sm-w-half.formbold-px-3

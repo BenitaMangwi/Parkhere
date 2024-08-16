@@ -39,7 +39,7 @@ block content
                   p.address= location.address
                   p.amenities= location.amenities + ' | ' + location.availability
                   p.price= "£" + location.price + "/hour"
-                  a.book-now(href="/bookings/booking" ) Book Now
+                  a.book-now(href="/bookings/booking?id=" + location.parking_space_id ) Book Now
 
                   
     else
