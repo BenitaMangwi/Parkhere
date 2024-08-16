@@ -36,7 +36,7 @@
   .image {
     margin-bottom: 0;
     height: 60vh;
-    width: 60vw;
+    width: 65vw;
     align-self: center;
   }
   
@@ -139,6 +139,8 @@
 
   .charging{
     padding-left: 50px;
+    font-size: 18px;
+    padding-right: 10px;
   }
   
   .formbold-radio {
