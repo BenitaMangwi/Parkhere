@@ -12,9 +12,11 @@ block content
 
             if location.parking_space_id === itemId
               div.booking-details
-              p.name= location.name
-              p.address= location.address          
-          
+                p.name= location.name
+                p.address= location.address
+            else
+              p There is no location available with this ID.
+              
           div.flex.flex-wrap.formbold--mx-3
             div.w-full.sm-w-half.formbold-px-3
               div.formbold-mb-5.w-full
