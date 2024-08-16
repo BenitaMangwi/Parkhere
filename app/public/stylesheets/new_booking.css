@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    align-items: center;
   }
   
   body {
@@ -18,30 +19,28 @@
   
   .formbold-main-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Centered items vertically */
+    justify-content: center; /* Centered items horizontally */
     padding: 20px;
   }
   
   .formbold-form-wrapper {
+    align-items: center;
     width: 100%;
     background: white;
-
-    
-    -webkit-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
-	-moz-box-shadow: 	3px 29px 63px 4px rgba(0,0,0,0.1);
-	box-shadow: 		3px 29px 63px 4px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 3px 29px 63px 4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 4px 29px 63px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 29px 63px 4px rgba(0, 0, 0, 0.1);
   }
-
-  .image{
+  
+  .image {
     margin-bottom: 0;
     height: 60vh;
     width: 60vw;
     align-self: center;
-
   }
   
-  .formbold--mx-3{
+  .formbold--mx-3 {
     padding: 10px;
   }
   
@@ -52,7 +51,6 @@
     color: #07074d;
     margin-bottom: 12px;
   }
-  
   
   .formbold-form-input {
     width: 100%;
@@ -72,19 +70,17 @@
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
   }
   
-  .price{
-    width: 80%;
-    padding: 24px;
+  .price {
+    width: 90%;
+    padding: 15px;
     border-radius: 6px;
     background: #B4C5E4;
     font-weight: 500;
     font-size: 16px;
     color: #3C3744;
-    outline: none;
-    resize: none;
     align-self: center;
   }
-
+  
   .formbold-btn {
     text-align: center;
     font-size: 16px;
@@ -95,7 +91,9 @@
     background-color: #090C9B;
     color: white;
     cursor: pointer;
-  } 
+    width: 350px;
+  }
+  
   .formbold-btn1 {
     text-align: center;
     font-size: 16px;
@@ -106,12 +104,13 @@
     background-color: #3C3744;
     color: white;
     cursor: pointer;
+    width: 350px;
   }
   
   .formbold-btn:hover {
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
   }
-
+  
   .formbold-btn1:hover {
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
   }
@@ -137,6 +136,10 @@
   .w-full {
     width: 100%;
   }
+
+  .charging{
+    padding-left: 50px;
+  }
   
   .formbold-radio {
     width: 20px;
@@ -150,9 +153,26 @@
     color: #070707;
     padding-right: 20px;
   }
-
-  .formbold-px-6{
+  
+  .formbold-px-6 {
     padding: 50px;
+  }
+  
+  .total-p {
+    text-align: center;
+    padding-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between; /* Distribute buttons evenly */
+    padding-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
   }
   
   @media (min-width: 540px) {
