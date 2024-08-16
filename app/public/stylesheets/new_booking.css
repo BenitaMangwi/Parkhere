@@ -5,7 +5,7 @@
   }
   
   body {
-    font-family: "Inter", sans-serif;
+    font-family: "Poppins", sans-serif;
   }
   
   .formbold-mb-5 {
@@ -35,10 +35,9 @@
 
   .image{
     margin-bottom: 0;
-    height: 40vh;
+    height: 60vh;
     width: 60vw;
     align-self: center;
-    padding-left: 10px;
 
   }
   
@@ -85,12 +84,27 @@
     padding: 14px 32px;
     border: none;
     font-weight: 600;
-    background-color: #6a64f1;
+    background-color: #090C9B;
+    color: white;
+    cursor: pointer;
+  } 
+  .formbold-btn1 {
+    text-align: center;
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 14px 32px;
+    border: none;
+    font-weight: 600;
+    background-color: #3C3744;
     color: white;
     cursor: pointer;
   }
   
   .formbold-btn:hover {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .formbold-btn1:hover {
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
   }
   
@@ -128,5 +142,13 @@
     color: #070707;
     padding-right: 20px;
   }
+
+  .formbold-px-6{
+    padding: 50px;
+  }
   
- 
+  @media (min-width: 540px) {
+    .sm-w-half {
+      width: 50%;
+    }
+  }

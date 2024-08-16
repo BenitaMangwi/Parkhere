@@ -10,13 +10,6 @@ block content
         form(action="/bookings/booking" method="POST")
           div.flex.flex-wrap.formbold--mx-3
 
-            if location.parking_space_id === itemId
-              div.booking-details
-                p.name= location.name
-                p.address= location.address
-            else
-              p There is no location available with this ID.
-              
           div.flex.flex-wrap.formbold--mx-3
             div.w-full.sm-w-half.formbold-px-3
               div.formbold-mb-5.w-full
@@ -49,4 +42,6 @@ block content
               input.formbold-radio(type="radio" name="radio1" id="radioButton2")
               label.formbold-radio-label(for="radioButton2") No
           div
-            button.formbold-btn Submit
+            div.sm-w-half.formbold-px-6
+              a.formbold-btn(href="/bookings" ) Book Now
+              a.formbold-btn1(href="https://www.google.com/maps/@51.6517876,0.0825904,14z?entry=ttu" ) Get Directions
