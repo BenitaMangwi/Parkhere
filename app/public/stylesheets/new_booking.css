@@ -9,7 +9,7 @@
   }
   
   .formbold-mb-5 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .formbold-pt-3 {
@@ -42,7 +42,7 @@
   }
   
   .formbold--mx-3{
-    padding: 20px;
+    padding: 10px;
   }
   
   .formbold-form-label {
@@ -53,11 +53,6 @@
     margin-bottom: 12px;
   }
   
-  .formbold-form-label-2 {
-    font-weight: 600;
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
   
   .formbold-form-input {
     width: 100%;
@@ -145,6 +140,7 @@
 
   .formbold-px-6{
     padding: 50px;
+    column-gap: 0.5rem;
   }
   
   @media (min-width: 540px) {
