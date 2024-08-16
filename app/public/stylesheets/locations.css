@@ -77,6 +77,10 @@ body {
 	opacity: 0.8; /* Changes the opacity on hover */
   }
 
+  image{
+	size: 10%;
+  }
+
   .name{
 	color: #090C9B;
 	font-style: bold ;
@@ -87,7 +91,7 @@ body {
   }
 
   .price{
-	padding-bottom: 10px;
+	padding-bottom: 15px;
   }
   .dropdown {
 	position: relative;
