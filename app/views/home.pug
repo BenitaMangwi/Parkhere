@@ -1,27 +1,56 @@
 extends layout
-
-
 block content
-  link(rel="stylesheet", href="./stylesheets/home.css")
-  script(src="https://kit.fontawesome.com/9b8a7e18a0.js")
+    h1 #{heading}
 
-  h1 Where do you want
-  h1 to park today
+    p first paragraphxxx
 
-  
-  body
-  .search_box
-    .search
-      .select_area
-        i.fas.fa-map-marker-alt.map_icon
-        .text Location
-      .line
-      .text_and-icon
-        input.search_text#search_text(type="text", placeholder="Search by Postcode or address ...")
+    - console.log(coords);
 
-  div(id="map", style="height: 600px; width: 80%;")
+    div#mapdiv
 
-  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkPjRJiiqhUZFJ4T_OJULzHnxlVXHzxEo&callback=initMap" async defer)
-  script(src="./scripts/map.js")
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+
+    script.
+        map = new OpenLayers.Map("mapdiv");
+        map.addLayer(new OpenLayers.Layer.OSM());
+
+        var zoom=16;
+
+        // Set the centre
+
+        var centrelonLat = new OpenLayers.LonLat( -0.1279688 ,51.5077286 )
+
+          .transform(
+
+            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+
+            map.getProjectionObject() // to Spherical Mercator Projection
+
+          );
+
+        map.setCenter (centrelonLat, zoom);
 
 
+
+
+        var markers = new OpenLayers.Layer.Markers( "Markers" );
+
+        map.addLayer(markers);
+
+
+    each coord in coords 
+
+        - console.log(coord)
+
+        script.
+            var lonLat = new OpenLayers.LonLat( #{coord.lat}, #{coord.long} )
+
+            .transform(
+
+              new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+
+              map.getProjectionObject() // to Spherical Mercator Projection
+
+            );
+
+            markers.addMarker(new OpenLayers.Marker(lonLat));

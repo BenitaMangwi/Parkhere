@@ -26,9 +26,26 @@ app.get("/landing_page", (req, res) => {
 });
 
 
+
+
 app.get("/home", function(req, res) {
-  res.render("home");
+
+  var coords = [
+
+    {lat: -0.1279688, long: 51.5077286 },
+
+    {lat: -0.1299688, long: 51.5097286 },
+
+    {lat: -0.1295688, long: 51.5095286 },
+
+    {lat: -0.1296688, long: 51.5097286 },
+
+  ];
+
+  res.render('home', {coords: coords});
+
 });
+
 
 app.get("/db_test", function(req, res) {
   // Assumes a table called test_table exists in your database

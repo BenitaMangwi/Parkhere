@@ -9,16 +9,25 @@ function initMap() {
 
   // Fetch parking data from your API or manually create an array of parking objects
   const parkings = [
-    // ... parking data
+    {
+      name: "Eastside Parking Lot",
+      address: "456 Elm St, Anytown, CA 91234",
+      amenities: "None",
+      price: 3,
+      availability: "Available",
+      latitude:-0.1279688 ,
+      longitude: 51.5077286 ,
+    },
+
   ];
 
   parkings.forEach((parking) => {
-    if (parking.type === "parking") { // Filter for parking locations
+    if (parking.availability === "Available") { // Filter for parking locations
       const marker = new google.maps.Marker({
         position: { lat: parking.latitude, lng: parking.longitude },
         map: map,
         title: parking.name,
-        icon: "https://maps.google.com/mapfiles/kml/pal4/icon28.png",
+        icon: "/images/favicon1.png",
       });
 
       // Add an info window to display parking details
@@ -26,7 +35,7 @@ function initMap() {
         content: `
           <h3>${parking.name}</h3>
           <p>${parking.address}</p>
-          <p>Available spaces: ${parking.availableSpaces}</p>
+          <p>Available spaces: ${parking.availability}</p>
         `,
       });
 

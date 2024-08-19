@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const locations = await locationModel.getLocations();
-    res.render("locations", { title: "Locations List", locations });
+    res.render("locations", "home", { title: "Locations List", locations });
   } catch (err) {
     next(err);
   }
