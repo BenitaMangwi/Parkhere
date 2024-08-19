@@ -1,56 +1,80 @@
 extends layout
 block content
-    h1 #{heading}
+  title Car Park Rental Platform
+  link(rel='stylesheet', href='/stylesheets/home.css')
+  script(src='https://www.openlayers.org/api/OpenLayers.js')
+    
+  body
+    h1 Where do you want
+    h1 to park today?
+    .search_box
+      .search
+        .select_area
+          i.fas.fa-map-marker-alt.map_icon
+          .text Location
+        .line
+        .text_and-icon
+          input.search_text#search_text(type="text", placeholder="Search by Postcode or address ...")
 
-    p first paragraphxxx
 
-    - console.log(coords);
-
-    div#mapdiv
-
-    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-
+    div(id="map", style="height: 600px; width: 90%;")
     script.
-        map = new OpenLayers.Map("mapdiv");
-        map.addLayer(new OpenLayers.Layer.OSM());
+      const carParks = [
+        {
+          name: "Q-Park Soho",
+          lat: 51.5142,
+          lng: -0.1337,
+        },
+        {
+          name: " NCP Brewer Street",
+          lat: 51.5148,
+          lng: -0.1375,
+        },
+        {
+          name: " NCP Great Portland Street",
+          lat: 51.5198,
+          lng: -0.1407,
+        },
+        // Add more car park locations here
+      ];
 
-        var zoom=16;
+      const map = new OpenLayers.Map("map");
+      const osmLayer = new OpenLayers.Layer.OSM();
+      map.addLayer(osmLayer);
 
-        // Set the centre
+      const markersLayer = new OpenLayers.Layer.Markers("Car Parks");
+      map.addLayer(markersLayer);
 
-        var centrelonLat = new OpenLayers.LonLat( -0.1279688 ,51.5077286 )
-
+      carParks.forEach((carPark) => {
+        const lonLat = new OpenLayers.LonLat(carPark.lng, carPark.lat)
           .transform(
-
             new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-
             map.getProjectionObject() // to Spherical Mercator Projection
-
           );
 
-        map.setCenter (centrelonLat, zoom);
+        const marker = new OpenLayers.Marker(lonLat);
+        marker.events.register("mouseover", marker, function (evt) {
+          this.popup = new OpenLayers.Popup.FramedCloud(
+            "popup",
+            lonLat,
+            null,
+            carPark.name,
+            null,
+            true
+          );
+          map.addPopup(this.popup);
+        });
+        marker.events.register("mouseout", marker, function (evt) {
+          map.removePopup(this.popup);
+        });
+        markersLayer.addMarker(marker);
+      });
 
-
-
-
-        var markers = new OpenLayers.Layer.Markers( "Markers" );
-
-        map.addLayer(markers);
-
-
-    each coord in coords 
-
-        - console.log(coord)
-
-        script.
-            var lonLat = new OpenLayers.LonLat( #{coord.lat}, #{coord.long} )
-
-            .transform(
-
-              new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-
-              map.getProjectionObject() // to Spherical Mercator Projection
-
-            );
-
-            markers.addMarker(new OpenLayers.Marker(lonLat));
+      map.setCenter(
+        new OpenLayers.LonLat(-0.1278, 51.5074).transform(
+          new OpenLayers.Projection("EPSG:4326"),
+          map.getProjectionObject()
+        ),
+        13
+      );
+  
