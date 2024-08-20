@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="/stylesheets/signup.css")
+    title Document
+  
+  body
+    .formbold-main-wrapper
+      a(href="/landing_page")
+        img(src="/images/arrow-up-circle.png" alt="back-button" class="back-button")
+
+      .formbold-form-wrapper
+        img(src="/images/house.jpg" alt="header-image" class="head-image")
+
+        .formbold-form-title
+          h2 Welcome back
+          p Login and say goodbye to the stress of finding parking
+
+        form(method="POST" class="login-form")
+          .formbold-input-flex
+            div
+              label(for="firstname" class="formbold-form-label") First name
+              input(type="text" name="firstname" id="firstname" class="formbold-form-input")
+           
+          .formbold-input-flex
+            div
+              label(for="email" class="formbold-form-label") Email
+              input(type="email" name="email" id="email" class="formbold-form-input" required)
+          
+          .formbold-input-flex
+            div
+              label(for="password" class="label") Password
+              input(type="password" name="Password" id="Password" class="formbold-form-input" required)
+              
+          
+          .formbold-btn
+            a(href="/home" class="hero-button-get-started-text")
+              button(type="submit" class='sign-up-login-button') Sign In
+
+          .texts
+            p.main-text Don't have an account yet?
+            a(href="/auth/signup")
+              p.sub-text Sign Up
