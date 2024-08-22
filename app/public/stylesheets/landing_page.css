@@ -58,11 +58,18 @@
     display: flex;
     column-gap: 0.5rem;
     padding-bottom: 40px;
+
+  }
+  .edit{
+    transition: transform 0.8s ease;
+  }
+  .edit:hover{
+    transform: scale(0.8);
   }
 
   .logIn-navbar {
     background-color: #3066be;
-    font-size: 18px;
+    font-size: 16px;
     padding: 0.5rem 1.2rem;
     border-radius: 0.3rem;
     border: 0px;
@@ -71,7 +78,7 @@
 
   .signUp-navbar {
     background-color: #3066be;
-    font-size: 18px;
+    font-size: 16px;
     padding: 0.5rem 1.2rem;
     border-radius: 0.3rem;
     border: 0px;
@@ -80,23 +87,24 @@
 
   .register-navbar{
     background-color: #090C9B;
-    font-size: 18px;
+    font-size: 16px;
     padding: 0.5rem 1.2rem;
     border-radius: 0.3rem;
     border: 0px;
     color: #ffffff;
+    transition: transition ease 1.0s;
   }
 
   .hero-left-container {
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
+    row-gap: 3rem;
     padding-top: 20px;
   }
 
   .hero-left-text-main {
     color:#090C9B;
-    font-size: 40px;
+    font-size: 32px;
     font-style: bold;
     width: 48%;
 
@@ -104,7 +112,7 @@
 
   .hero-left-text-subtext {
     color:#3C3744;
-    font-size: 24px;
+    font-size: 18px;
     width: 30%;
     padding-top: 10px;
   }
@@ -131,14 +139,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-right: 90px;
 }
 
 .about-section{
     background: url(/images/pic6.svg) no-repeat left;
-    background-size: 80%;
+    background-size: 150vh;
     background-color: #fdfdfd;
     overflow: hidden;
-    padding: 80px 0;
 }
 
 .inner-container{
@@ -146,12 +154,13 @@
     float: right;
     background-color: #fdfdfd;
     padding: 80px;
-
+    box-shadow: 5px 5px 10px rgba(0.5, 0, 0, 0.5);
+    padding-right: 100px;
 
 }
 
 .inner-container h1{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 30px;
     font-weight: 900;
 }
@@ -161,45 +170,21 @@
     color: #545454;
     line-height: 30px;
     text-align: justify;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .skills{
     display: flex;
     justify-content: space-between;
-    font-weight: 700;
-    font-size: 13px;
+    font-weight: bold;
+    font-size: 8px;
 }
 
-@media screen and (max-width:1000px){
-    .inner-container{
-        padding: 80px;
-    }
-}
-
-@media screen and (max-width:1000px){
-    .about-section{
-        background-size: 100%;
-        padding: 50px 20px;
-    }
-    .inner-container{
-        width: 100%;
-    }
-}
-
-@media screen and (max-width:600px){
-    .about-section{
-        padding: 0;
-    }
-    .inner-container{
-        padding: 60px;
-    }
-}
   .why-us {
     display: flex;
     flex-direction: column;
-    row-gap: 4rem;
-    padding: 4rem 8rem 4rem 8rem;
+    row-gap: 5rem;
+    padding: 4rem 8rem 4rem 9rem;
   }
 
   .why-us-container {
@@ -250,19 +235,21 @@
 
   
   .why-us-inner-content:hover {
-    transform: scale(2.5);
+    transform: scale(1.1);
   }
 
   .why-us-inner-content-text-title {
     font-size: 18px;
     font-weight: bold;
     color: #090C9B;
+    width: 200px;
   }
 
   .why-us-inner-content-text-subtext {
     font-size: 14px;
     color: #3C3744;
     line-height: 20px;
+    width: 200px;
   }
 
   .privacy {
@@ -273,8 +260,6 @@
   }
 
   .privacy-main-subtext-container {
-    display: flex;
-    flex-direction: column;
     row-gap: 0.5rem;
   }
 
@@ -389,11 +374,15 @@ ul{
     width: 100%;
 }
 }
+.feedback{
+  align-content: center;
+}
 
 .snip1533 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   color: #3C3744;
-  display: inline-block;
+  display: flex;
+  position:absolute;
   font-size: 16px;
   margin: 35px 10px 10px;
   max-width: 310px;
@@ -406,34 +395,11 @@ ul{
   border-top: 5px solid #3066be;
 }
 
-.snip1533 *,
-.snip1533 *:before {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
-}
 
 .snip1533 figcaption {
   padding: 13% 10% 12%;
 }
 
-.snip1533 figcaption:before {
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  background-color: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  color: #090C9B;
-  content: "\f10e";
-  font-size: 32px;
-  font-style: normal;
-  left: 50%;
-  line-height: 60px;
-  position: absolute;
-  top: -30px;
-  width: 60px;
-}
 
 .snip1533 h3 {
   color: #3c3c3c;
@@ -455,7 +421,7 @@ ul{
   margin: 0 0 20px;
 }
 
-.alternating-colors{ padding-left: 70px; }
+
 
 .list{
   color: #3C3744; 
