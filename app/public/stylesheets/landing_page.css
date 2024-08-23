@@ -281,7 +281,6 @@
 
 
 
-
 footer{
   line-height: 1.5;
   font-family: 'Poppins', sans-serif;
@@ -375,19 +374,19 @@ ul{
 }
 }
 .feedback{
-  align-content: center;
-}
-
+    display: flex;
+    padding: 2rem 4rem 4rem 4rem;
+  }
+  
 .snip1533 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   color: #3C3744;
-  display: flex;
-  position:absolute;
-  font-size: 16px;
-  margin: 35px 10px 10px;
-  max-width: 310px;
-  min-width: 250px;
-  position: relative;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 10px;
+  row-gap: 1rem;
+  height: 200px;
   text-align: center;
   width: 100%;
   background-color: #ffffff;
@@ -425,7 +424,7 @@ ul{
 
 .list{
   color: #3C3744; 
-  padding-left: 16px;
+  padding-left: 20px;
   margin-top: 24px;
   position: relative;
   font-size: 16px;
