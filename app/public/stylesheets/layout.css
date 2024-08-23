@@ -23,6 +23,30 @@ a {
   margin-top: 8vh;
 }
 
+.register-navbar{
+  background-color: #090C9B;
+  font-size: 16px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.3rem;
+  border: 0px;
+  color: #ffffff;
+  transition: transition ease 1.0s;
+}
+
+.left{
+  display: flex;
+  column-gap: 1.5rem;
+}
+
+.button{
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.button:hover{
+  opacity: 90%;
+}
+
 #logo {
   width: 12vw;
 }

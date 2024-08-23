@@ -16,14 +16,19 @@ html
       a(href='/home')
         img(src="/images/logo.png" alt="expense tracker logo" id='logo')
       
-      div.dd-container
-        img(src="/images/userIcon.png" id='profile')
-        div.drop-down
-          a(href='/landing_page') Landing Page
-          if user == 'admin'
-            a(href='/users') Users
-          a(href='/auth/login') Switch User
-          a(href='/auth/logout') Log Out
+      .left
+        .button
+          a(href="/locations/create" class="signUp-navbar-text") 
+            button(type="button" class="register-navbar") Register your parking
+      
+        div.dd-container
+          img(src="/images/userIcon.png" id='profile')
+          div.drop-down
+            a(href='/landing_page') Landing Page
+            if user == 'admin'
+              a(href='/users') Users
+            a(href='/auth/login') Switch User
+            a(href='/auth/logout') Log Out
     
     div.nav
       a(href='/home' class='nav-home')
