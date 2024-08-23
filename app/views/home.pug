@@ -1,6 +1,6 @@
 extends layout
 block content
-  title Car Park Rental Platform
+  title Home Page
   link(rel='stylesheet', href='/stylesheets/home.css')
   script(src='https://www.openlayers.org/api/OpenLayers.js')
 
@@ -11,11 +11,12 @@ block content
     .search_box
       .search
         .select_area
-          i.fas.fa-map-marker-alt.map_icon
+          i.fas.fa-map-marker-alt
           .text Location
         .line
         .text_and-icon
-          input.search_text#search_text(type="text", placeholder="Search by Postcode or address ...")
+          a(href="/locations")
+            input.search_text#search_text(type="text", placeholder="Search by Postcode or address ...")
 
 
     div(id="map", style="height: 600px; width: 90%;")
