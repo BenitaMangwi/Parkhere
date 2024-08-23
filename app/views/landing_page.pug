@@ -1,1 +1,154 @@
-extends layout 
+doctype html
+html
+  head
+    title landing page
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="shortcut icon", href="./images/favicon1.png", type="image/x-icon")
+    link(rel='stylesheet' href='/stylesheets/landing_page.css')
+ 
+  body
+    .home
+      .navbar
+        a(href= "/home")
+          img(src="./images/logo.png" alt="main-logo" class="logo-nav") 
+
+        .logIn-signUp-button-container
+          a.edit(href="/auth/login" class="logIn-navbar-text") 
+            button(type="button" class="logIn-navbar") Log In 
+          a.edit(href="/auth/signup" class="signUp-navbar-text") 
+            button(type="button" class="signUp-navbar") Sign Up
+          a.edit(href="/locations/create" class="signUp-navbar-text") 
+            button(type="button" class="register-navbar") Register your parking
+
+      .hero-left-container 
+        .hero-left-text-container 
+          h1.hero-left-text-main Find and book affordable parking spaces in minutes.
+          p.hero-left-text-subtext Say goodbye to the stress of finding parking in London.
+
+        a(href="/auth/signup" class="hero-button-get-started-text") 
+          button(type="button" class="hero-button-get-started") Get Started
+
+    .about-us
+      div.about-section
+        div.inner-container
+          h1 About Us
+          p.text
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus velit ducimus, enim inventore earum, eligendi nostrum pariatur necessitatibus eius dicta a voluptates sit deleniti autem error eos totam nisi neque voluptates sit deleniti autem error eos totam nisi neque.
+          div.skills
+            span Search for parking
+            span Rent your parking
+            span Find charging spots
+
+
+
+    .why-us 
+      .why-us-main-subtext-container 
+        h2.why-us-title Why Choose Our Car Parking Rental App?
+        p.why-us-subtext We make so easy to park in urban cities 
+      .why-us-inner-contents 
+        .why-us-inner-content
+          img(src="./images/pic4.svg" alt="atm-card" class="inner-content-image")
+          .why-us-inner-content-text-container 
+            h3.why-us-inner-content-text-title Wide range of parking options
+            p.why-us-inner-content-text-subtext Choose from street parking, garages, and valet services.
+        .why-us-inner-content
+          img(src="./images/pic1.svg" alt="atm-card" class="inner-content-image")
+          .why-us-inner-content-text-container 
+            h3.why-us-inner-content-text-title Real-time availability
+            p.why-us-inner-content-text-subtext See which spots are available before you head out.
+        .why-us-inner-content
+          img(src="./images/pic3.svg" alt="atm-card" class="inner-content-image")
+          .why-us-inner-content-text-container 
+            h3.why-us-inner-content-text-title Easy booking and payment
+            p.why-us-inner-content-text-subtext Secure your spot and pay directly through the app
+    
+    .privacy 
+      .privacy-main-subtext-container 
+        h4 How it Works Section:
+        p Parking Made Easy
+        
+        ol.alternating-colors
+          li
+            p.list Download the app and create an account.
+          li
+            p.list Enter your location and desired parking time.
+          li
+            p.list Browse available options and choose your spot.
+          li 
+            p.list Book and pay for your parking through the app.
+          li 
+            p.list Enjoy your stress-free parking experience!
+ 
+      img(src="./images/pic2.svg", alt="padlock" class="padlock")
+    
+    .questions
+   
+    
+    .feedback
+      figure.snip1533
+        figcaption
+          blockquote
+            p "This app is a lifesaver! I used to spend hours looking for parking in the city, but now I can always find a spot with just a few clicks."
+          h3 Wisteria Ravenclaw
+      figure.snip1533
+        figcaption
+          blockquote
+            p "I love how easy it is to use this app. The interface is intuitive and the booking process is seamless."
+          h3 Mary Claire
+      figure.snip1533
+        figcaption
+          blockquote
+            p "I will definitley be using this platform over and over again".
+          h3 Wendy Ola
+    
+    
+    footer.footer
+      .container
+        .row
+          .footer-col
+            h4 company
+            ul
+              li
+                a(href="#") about us
+              li
+                a(href="#") our services
+              li
+                a(href="#") privacy policy
+              li
+                a(href="#") affiliate platforms
+          .footer-col
+            h4 get help
+            ul
+              li
+                a(href="#") FAQ
+              li
+                a(href="#") Route
+              li
+                a(href="#") user guide
+              li
+                a(href="#") blog posts
+              li
+                a(href="#") payment options
+          .footer-col
+            h4 online shop
+            ul
+              li
+                a(href="#") about us
+              li
+                a(href="#") navigate
+              li
+                a(href="#") contact us
+              li
+                a(href="#") share parking
+          .footer-col
+            h4 follow us
+            .social-links
+              a(href="#")
+                i.fab.fa-facebook-f
+              a(href="#")
+                i.fab.fa-twitter
+              a(href="#")
+                i.fab.fa-instagram
+              a(href="#")
+                i.fab.fa-linkedin-in

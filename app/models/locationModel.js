@@ -10,9 +10,13 @@ const getLocations = async () => {
   }
 };
 
-const createLocation = async (locationData) => {
+const createLocation = async (location) => {
   try {
-    await db.query("INSERT INTO Locations SET ?", locationData);
+    const result = await db.query(
+      "INSERT INTO Locations (name) VALUES (?)",
+      [location]
+    );
+    return result;
   } catch (error) {
     console.error("Error creating location:", error);
     throw error;

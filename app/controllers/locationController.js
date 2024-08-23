@@ -15,15 +15,16 @@ router.get("/", async (req, res) => {
 });
 
 // Create a new location
-router.post("/", async (req, res) => {
-  try {
-    await locationModel.createLocation(req.body);
-    res.redirect("/locations");
-  } catch (err) {
-    next(err);
-  }
+router.get("/create", async (req, res, next) => {
+  res.render("register", { title: "Create a location" });
 });
 
-// ... other location-related routes
+router.post("/create", async (req, res, next) => {
+  console.log(req.body);
+  await locationModel.createLocation(req.body.name);
+  res.redirect("/locations");
+});
+
+
 
 module.exports = router;

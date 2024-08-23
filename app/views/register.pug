@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+  head
+    title FormBold Registration Form
+    link(rel="stylesheet", href="/stylesheets/register.css")
+  body
+    div.formbold-main-wrapper
+      form( method="POST")
+        div.formbold-form-title
+          h2.formbold-form-title-h2 Register now
+          p.formbold-form-title-p Register your parking space today.
+        div.formbold-input-flex
+         
+        div.formbold-mb-3
+          label.formbold-form-label(for="address") Location Name
+          input.formbold-form-input(type="text", name="address", id="address")
+        div.formbold-mb-3
+          label.formbold-form-label(for="address2") Street Address
+          input.formbold-form-input(type="text", name="address2", id="address2")
+        div.formbold-input-flex
+          div
+            label.formbold-form-label(for="state") Amenity
+            input.formbold-form-input(type="text", name="state", id="state")
+          div
+            label.formbold-form-label(for="country") Availability
+            input.formbold-form-input(type="text", name="availability", id="country")
+        div.formbold-input-flex
+          div
+            label.formbold-form-label(for="post") Latitude
+            input.formbold-form-input(type="text", name="post", id="post")
+          div
+            label.formbold-form-label(for="area") Longitude
+            input.formbold-form-input(type="text", name="area", id="area")
+          
+        div.formbold-mb-3
+          label.formbold-form-label(for="Price") Price
+          input.formbold-form-input(type="text", name="price", id="price")
+        
+        
+        div.formbold-textarea
+            textarea.formbold-form-input(name="message" id="message" rows="6" placeholder="Write your message...")
+            label.formbold-form-label(for="message") Leave any important message
+
+        div.formbold-input-file
+          div.formbold-filename-wrapper
+            
+            
+        button.formbold-btn(type="submit" ) Register Now
+        
