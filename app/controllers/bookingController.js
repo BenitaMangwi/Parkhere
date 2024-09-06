@@ -43,7 +43,7 @@ router.get("/:booking_id/delete", async (req, res, next) => {
   try {
     const booking = await bookingModel.getSinglebooking(req.params.booking_id);
 
-    res.render("delete_booking", { title: "Cancel Booking:", booking });
+    res.render("delete_booking", { title: "Cancel this Booking ", booking });
   } catch (err) {
     next(err);
   }
