@@ -14,24 +14,24 @@ block content
             div.w-full.sm-w-half.formbold-px-3
               div.formbold-mb-5.w-full
                 label.formbold-form-label From
-                input.formbold-form-input(type="date" name="date" id="date")
+                input.formbold-form-input(type="date" name="date" id="date" value=booking?booking.start_date.toISOString().substring(0, 10):"", required)
             
             div.w-full.sm-w-half.formbold-px-3
               div.formbold-mb-5.w-full
                 label.formbold-form-label To
-                input.formbold-form-input(type="date" name="date" id="date")
+                input.formbold-form-input(type="date" name="date" id="date" value=booking?booking.end_date.toISOString().substring(0, 10):"", required)
             
              
           div.flex.flex-wrap.formbold--mx-3
             div.w-full.sm-w-half.formbold-px-3
               div.formbold-mb-5
                 label.formbold-form-label From
-                input.formbold-form-input(type="time" name="time" id="time")
+                input.formbold-form-input(type="time" name="time" id="time" value=booking? booking.start_time.toISOString().split('T')[1].split('.')[0] : '', required) 
             
             div.w-full.sm-w-half.formbold-px-3
               div.formbold-mb-5
                 label.formbold-form-label To
-                input.formbold-form-input(type="time" name="time" id="time")
+                input.formbold-form-input(type="time" name="time" id="time" value= booking? booking.end_time.toISOString().split('T')[1].split('.')[0] : '')
           
           div.flex.formbold-mb-5
             p.charging Need charging?
