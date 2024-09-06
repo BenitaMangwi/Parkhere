@@ -12,10 +12,12 @@ block content
           li
             .left
               div
-                p.name= booking.name
-                p.address= booking.address
-                p.date= booking.start_time ? booking.start_time.toISOString().split('T')[0] : ''
-                p.time= booking.start_time ? booking.start_time.toISOString().split('T')[1].split('.')[0] : ''
+                p.name= booking.booking_name
+                p.address= booking.booking_address
+                p.date= booking.start_date?booking.start_date.toISOString().split('T')[0]:''
+                p.time= `Booked at: ${booking.start_time}`
+
+                
                 
             
             .right

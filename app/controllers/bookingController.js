@@ -22,18 +22,37 @@ router.get("/booking", async (req, res, next) => {
 
 router.post("/booking", async (req, res, next) => {
   console.log(req.body);
-  await bookingModel.createBooking(req.body.booking_id);
-  res.redirect("/bookings");
+
+  try{ 
+    let{ start_date, end_date, start_time, end_time } = req.body
+
+    bookingModel.createBooking (start_date, end_date, start_time, end_time)
+    res.redirect("/bookings");
+  
+  }catch (err) {
+  next(err)
+ }
+
 });
+
+
+
 // Canceling a booking
 
-router.delete("/:booking_id", async (req, res, next) => {
+router.get("/:booking_id/delete", async (req, res, next) => {
   try {
-    await bookingModel.cancelBooking(req.params.booking_id); // Use req.params.bookingId
-    res.json({ message: "Booking canceled successfully" });
+    const booking = await bookingModel.getSinglebooking(req.params.booking_id);
+
+    res.render("delete_booking", { title: "Cancel Booking:", booking });
   } catch (err) {
     next(err);
   }
 });
+
+router.post('/:booking_id/delete', async (req, res) => {
+  await bookingModel.cancelBooking(req.params.booking_id)
+  res.redirect('/bookings')
+});
+
 
 module.exports = router;

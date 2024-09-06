@@ -3,7 +3,11 @@ const db = require("../services/db");
 
 const getBookings = async () => {
     try {
-      const rows = await db.query("SELECT * FROM Bookings");
+      const rows = await db.query(
+        `SELECT b.*, l.name AS booking_name, l.address AS booking_address
+        FROM Bookings b
+        JOIN Locations l ON b.parking_space_id = l.parking_space_id`
+      );
       return rows;
     } catch (error) {
       console.error("Error fetching bookings:", error);
@@ -11,26 +15,51 @@ const getBookings = async () => {
     }
   };
 
-const createBooking = async (bookingData) => {
+  //Create booking
+const createBooking = async (start_date, end_date, start_time, end_time) => {
   try {
-    await connection.query("INSERT INTO Bookings SET ?", bookingData);
+    const result = await db.query(
+      "INSERT INTO Bookings (start_date, end_date, start_time, end_time) VALUES (?,?,?,?)",
+      [start_date, end_date, start_time, end_time])
+    return result.insertId
+
   } catch (error) {
-    console.error("Error creating booking:", error);
-    throw error;
+      console.error("Error creating location:", error);
+      throw error;
   }
 };
 
-const cancelBooking = async (booking_id) => {
+//get single booking
+
+async function getSinglebooking(bookingId) {
   try {
-    await connection.query("DELETE FROM Bookings WHERE booking_id = ?", [booking_id]); // Use booking_id parameter
+    const sql = `SELECT * FROM Bookings WHERE booking_id = ?`;
+    const [booking] = await db.query(sql, [bookingId]);
+
+    if (!booking) {
+      throw new Error(`Booking with ID ${bookingId} not found`);
+    }
+
+    return booking;
   } catch (error) {
-    console.error("Error canceling booking:", error);
-    throw error;
+    throw error; // Re-throw the error for handling in the controller
   }
-};
+}
+//Delete booking
+
+
+async function cancelBooking(booking_id) {
+  try {
+    await db.query('DELETE FROM Bookings WHERE booking_id = ?', [booking_id]);
+  } catch (error) {
+    throw error; // Re-throw the error for handling in the controller
+  }
+}
+
 
 module.exports = {
   getBookings,
   createBooking,
-  cancelBooking, // Expose the connection object
+  cancelBooking,
+  getSinglebooking, // Expose the connection object
 };

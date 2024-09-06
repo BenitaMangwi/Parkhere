@@ -26,9 +26,10 @@ CREATE TABLE Bookings (
     booking_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT REFERENCES Users(user_id),
     parking_space_id INT REFERENCES ParkingSpaces(parking_space_id),
-    car_id INT REFERENCES Cars(car_id),
-    start_time DATETIME,
-    end_time DATETIME,
+    start_date DATE,
+    end_date DATE,
+    start_time TIME,
+    end_time TIME,
     total_price DECIMAL
 );
 
@@ -57,10 +58,16 @@ INSERT INTO Locations (name, address, amenities, price, latitude, longitude, ava
 (' NCP Tower of London Car Park', 'Byward St, Tower Hill, London EC3R 5BJ', 'Charging', 22.00, 51.5083, -0.0775, TRUE, 14),
 ('Smart Parking London Bridge', '100 Tooley St, London SE1 2TH','Avaialble', 19.00, 51.5036, -0.0833, TRUE, 15);
 
-INSERT INTO Bookings (booking_id, user_id, parking_space_id, car_id, start_time, end_time, total_price) VALUES
-(1, 1, 2, 1, '2023-11-22 10:00:00', '2023-11-22 14:00:00', 40.00),
-(2, 2, 1, 2, '2023-11-23 18:00:00', '2023-11-24 08:00:00', 180.00),
-(3, 3, 3, 3, '2023-11-24 12:00:00', '2023-11-24 16:00:00', 20.00),
-(4, 4, 5, 4, '2023-11-25 09:00:00', '2023-11-25 17:00:00', 96.00),
-(5, 5, 4, 5, '2023-11-26 14:00:00', '2023-11-27 10:00:00', 160.00);
+INSERT INTO Bookings (user_id, parking_space_id, start_date, end_date, start_time, end_time, total_price)
+VALUES
+(1, 11, '2023-12-15', '2023-12-16', '10:00:00', '12:00:00', 20.00),
+(2, 11, '2023-12-17', '2023-12-18', '14:00:00', '16:00:00', 30.00),
+(3, 15, '2023-12-19', '2023-12-20', '08:00:00', '10:00:00', 15.00),
+(4, 12, '2023-12-21', '2023-12-22', '12:00:00', '14:00:00', 25.00),
+(5, 15, '2023-12-23', '2023-12-24', '16:00:00', '18:00:00', 35.00),
+(6, 18, '2023-12-25', '2023-12-26', '10:00:00', '12:00:00', 20.00),
+(7, 20, '2023-12-27', '2023-12-28', '14:00:00', '16:00:00', 30.00),
+(8, 20, '2023-12-29', '2023-12-30', '08:00:00', '10:00:00', 15.00),
+(8, 17, '2023-12-31', '2024-01-01', '12:00:00', '14:00:00', 25.00),
+(2, 19, '2024-01-02', '2024-01-03', '16:00:00', '18:00:00', 35.00);
 

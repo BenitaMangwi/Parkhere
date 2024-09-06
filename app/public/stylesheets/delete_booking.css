@@ -1,0 +1,30 @@
+.content {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	color: azure;
+	margin-top: 2vh;
+	margin-bottom: 0.5vh;
+}
+
+.buttons > button {
+	background-color: #090C9B;
+	border-radius: 8px;
+	padding: 1vh 2vw;
+	border: none;	
+}
+
+.buttons > button > a {
+	color: white;
+	
+}
+
+.buttons > button:hover {
+	background-color: #219EBC;
+}

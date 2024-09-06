@@ -10,16 +10,19 @@ const getLocations = async () => {
   }
 };
 
-const createLocation = async (locationData) => {
+const createLocation = async (start_date, end_date, start_time, end_time, total_price) => {
   try {
-    await db.query("INSERT INTO Locations SET ?", locationData);
+    const result = await db.query(
+      "INSERT INTO Locations (start_date, end_date, start_time, end_time, total_price) VALUES (?,?,?,?,?)",
+      [start_date, end_date, start_time, end_time, total_price])
+    return result.insertId
   } catch (error) {
     console.error("Error creating location:", error);
     throw error;
   }
 };
 
-// ... other location-related model functions
+
 
 module.exports = {
   getLocations,
