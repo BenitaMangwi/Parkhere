@@ -26,8 +26,7 @@ router.post("/signup", async function(req, res){
 
     return
   }
-
-
+  
   let data = {
     ...req.body
   }

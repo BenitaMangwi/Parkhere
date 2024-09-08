@@ -65,6 +65,7 @@ app.get("/home", function(req, res) {
   res.render("home");
 });
 
+//error handling
 app.use((req, res, next) => {
   next(createError(404));
 });
