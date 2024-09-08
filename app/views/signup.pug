@@ -4,10 +4,11 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="/stylesheets/signup.css")
-    title Document
+    title SignUp
   
   body
-    .formbold-main-wrapper
+    form(action='/set-password' method='POST')
+      .formbold-main-wrapper
       a(href="/landing_page")
         img(src="/images/arrow-up-circle.png" alt="expenseTracker-back-button" class="back-button")
 
@@ -22,22 +23,22 @@ html(lang="en")
           .formbold-input-flex
             div
               label(for="firstname" class="formbold-form-label") First name
-              input(type="text" name="firstname" id="firstname" class="formbold-form-input")
+              input(type="text" name="first_name" id="firstname" class="formbold-form-input")
             div
               label(for="lastname" class="formbold-form-label") Last name
-              input(type="text" name="lastname" id="lastname" class="formbold-form-input" required)
+              input(type="text" name="last_name" id="lastname" class="formbold-form-input" required)
           .formbold-input-flex
             div
               label(for="email" class="formbold-form-label") Email
               input(type="email" name="email" id="email" class="formbold-form-input" required)
             div
               label(for="phone" class="formbold-form-label") Phone number
-              input(type="text" name="phone" id="phone" class="formbold-form-input" required)
+              input(type="text" name="phone_number" id="phone" class="formbold-form-input" required)
           
           .formbold-input-flex
             div
               label(for="password" class="label") Password
-              input(type="password" name="Password" id="Password" class="formbold-form-input" required)
+              input(type="password" name="password" id="Password" class="formbold-form-input" required)
               
           
           .formbold-btn

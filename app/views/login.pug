@@ -4,7 +4,7 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="/stylesheets/signup.css")
-    title Document
+    title Login
   
   body
     .formbold-main-wrapper
@@ -18,11 +18,11 @@ html(lang="en")
           h2 Welcome back
           p Login and say goodbye to the stress of finding parking
 
-        form(method="POST" class="login-form")
+        form(action="/authenticate" method="POST")
           .formbold-input-flex
             div
               label(for="firstname" class="formbold-form-label") First name
-              input(type="text" name="firstname" id="firstname" class="formbold-form-input")
+              input(type="text" name="first_name" id="firstname" class="formbold-form-input")
            
           .formbold-input-flex
             div
@@ -32,7 +32,7 @@ html(lang="en")
           .formbold-input-flex
             div
               label(for="password" class="label") Password
-              input(type="password" name="Password" id="Password" class="formbold-form-input" required)
+              input(type="password" name="password" id="Password" class="formbold-form-input" required)
               
           
           .formbold-btn

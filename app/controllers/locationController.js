@@ -1,7 +1,6 @@
 const express = require('express');
 const locationModel = require('../models/locationModel');
 
-
 const router = express.Router();
 
 // Get all locations
