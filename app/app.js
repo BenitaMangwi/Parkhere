@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path'); // Added for serving static files
-const { User } = require("./models/userModel");
+const createError = require("http-errors");
+const cookieParser = require('cookie-parser')
 
+const userModel = require("./models/userModel")
 
 const locationController = require('./controllers/locationController');
 const bookingController = require('./controllers/bookingController');
@@ -18,6 +20,24 @@ app.set("views", "./app/views");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser())
+
+// setting up cookies
+app.use(async (req, res, next) => {
+  if(req.cookies.user == null){
+    res.cookie('user', 'admin')
+    console.log("admin mode")
+  }
+  
+  if(req.cookies.user == 'admin' || req.cookies.user==null){
+    res.locals.user = "admin"
+  }
+  else {
+    res.locals.user = await userModel.getName(req.cookies.user)
+  }
+    
+  next();
+});
 
 // Mount controllers for other functionalities
 app.use('/locations', locationController);
@@ -87,7 +107,16 @@ app.get("/home", function(req, res) {
   res.render("home");
 });
 
+app.use((req, res, next) => {
+  next(createError(404));
+});
 
+app.use((err, req, res, next) => {
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+  res.status(err.status || 500);
+  res.render("error");
+});
 
 // Start server on port 3000
 app.listen(3000,function(){
