@@ -24,9 +24,9 @@ router.post("/booking", async (req, res, next) => {
   console.log(req.body);
 
   try{ 
-    let{ start_date, end_date, start_time, end_time } = req.body
+    let{ user_id, parking_space_id, start_date, end_date, start_time, end_time, total_price } = req.body
 
-    bookingModel.createBooking (start_date, end_date, start_time, end_time)
+    bookingModel.createBooking (user_id, parking_space_id, start_date, end_date, start_time, end_time, total_price)
     res.redirect("/bookings");
   
   }catch (err) {

@@ -16,11 +16,12 @@ const getBookings = async () => {
   };
 
   //Create booking
-const createBooking = async (start_date, end_date, start_time, end_time) => {
+const createBooking = async (user_id, parking_space_id, start_date, end_date, start_time, end_time, total_price)=> {
   try {
     const result = await db.query(
-      "INSERT INTO Bookings (start_date, end_date, start_time, end_time) VALUES (?,?,?,?)",
-      [start_date, end_date, start_time, end_time])
+      "INSERT INTO Bookings (user_id, parking_space_id, start_date, end_date, start_time, end_time, total_price) VALUES (?,?,?,?,?,?)",
+      [user_id, parking_space_id, start_date, end_date, start_time, end_time, total_price])
+
     return result.insertId
 
   } catch (error) {
