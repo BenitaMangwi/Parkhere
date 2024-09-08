@@ -1,5 +1,4 @@
 
-
 const signUpView = () => {
   const current_view = "signup";
   return current_view;

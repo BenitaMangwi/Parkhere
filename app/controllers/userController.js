@@ -1,12 +1,11 @@
 const express = require('express');
 const userModel = require('../models/userModel');
 
-
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    if (req.cookies.user !== 'admin') {
+    if (req.cookies.user !== 'owner') {
       res.redirect('/home');
       return;
     }

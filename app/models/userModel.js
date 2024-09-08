@@ -1,9 +1,10 @@
-const db = require("../services/db");
-const bcrypt = require("bcryptjs");
+const { query } = require('express');
+const db = require('../services/db');
+const { pool } = require("../services/db")
 
 // Function to get all users
 class User {
-  constructor(first_name=null, last_name=null, password=null, email=null, phone_number=null) {
+  constructor(first_name = null, last_name = null, password = null, email = null, phone_number = null) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.password = password;
@@ -11,56 +12,101 @@ class User {
     this.phone_number = phone_number;
   }
 
-  async getIdFromEmail() {
-    const sql = "SELECT user_id FROM Users WHERE Users.email = ?";
-    const result = await db.query(sql, [this.email]);
-      console.log(email)
-    // TODO LOTS OF ERROR CHECKS HERE..
-    if (JSON.stringify(result) != '[]') {
-      this.user_id = result[0].user_id;
-      return this.user_id;
-    } else {
-      return false;
+  async getUserById(id) {
+    const sql = `SELECT * FROM User WHERE user_id = ?`;
+    const [user] = await db.pool.query(sql, [id]);
+    if (user) {
+      for (const [key, value] of Object.entries(user[0])) {
+        this[key] = value;
+      }
     }
   }
-  // Add a password to an existing user
-  //async setUserPassword(password) {
-    //const pw = await bcrypt.hash(password, 10);
-    //var sql = "UPDATE Users SET password = ? WHERE Users.id = ?"
-    //const result = await db.query(sql, [pw, this.id]);
-    //return true;
-//}
 
-  // Add a new record to the users table    
-  async addUser(password, email) {
+  async getUserByEmail(email) {
+    const sql = `SELECT * FROM User WHERE email = ?`;
+    const [user] = await db.pool.query(sql, [email]);
+    if (user) {
+      for (const [key, value] of Object.entries(user[0])) {
+        this[key] = value;
+      }
+    }
+  }
+    print() {
+    console.log(this.email);
+    console.log(this.first_name, this.last_name);
+    }
+
+  static async getUsers() {
     try {
-      const pw = await bcrypt.hash(password, 10);
-      const sql = "INSERT INTO Users (email, password, first_name, last_name, phone_number) VALUES (?, ?, ?, ?, ?)";
-      const result = await db.query(sql, [email, pw, first_name, last_name, phone_number])
-      this.user_id = result.insertId;
-      return true;
+      const rows = await db.query('SELECT * FROM Users');
+      return rows;
     } catch (error) {
-      // Log the error message and return false
-      console.error(`Error while adding user: ${error.message}`);
-      return false;
+      console.error('Error fetching users:', error);
+      throw error;
     }
   }
 
-  // Test a submitted password against a stored password
-  async authenticate(submitted) {
-    // Get the stored, hashed password for the user
-    var sql = "SELECT password FROM Users WHERE user_id = ?";
-    const result = await db.query(sql, [this.user_id]);
-    const match = await bcrypt.compare(submitted, result[0].password);
-    if (match == true) {
-        return true;
+    static async getUser(email, first_name = null) {
+      if (first_name) {
+        const sql = `SELECT * FROM Users WHERE email = ? or first_name = ?`;
+        const [result] = await db.pool.query(sql, [email, first_name]);
+        return result;
+      } else {
+        const sql = `SELECT * FROM Users WHERE email = ?`;
+        const [result] = await db.pool.query(sql, [email]);
+        return result;
+      }
+  }
+
+  static async addUser(data) {
+    const sql = `INSERT INTO User(first_name, last_name, email, password, phone_number) VALUES(?)`;
+    const user = [];
+
+    for (const [key, value] of Object.entries(data)) {
+      user.push(value);
     }
-    else {
-        return false;
-    }
+
+    const result = await db.pool.query(sql, [user]);
+    return result;
   }
 }
 
-  module.exports = {
-    User
-  };
+const getUsers = async () => {
+  try {
+    const rows = await db.query('SELECT * FROM Users');
+    return rows;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    throw error;
+  }
+};
+
+async function getUser(email, username = null){
+  if(username != null) {
+    let sql = `SELECT * FROM User WHERE Email = ? or Username = ?`
+    let [result] = await db.pool.query(sql, [email, username])
+    return result
+  }
+
+  let sql = `SELECT * FROM User WHERE Email = ?`
+  let [result] = await db.pool.query(sql, [email])
+  return result
+}  
+
+async function addUser(data){
+  let sql = `INSERT INTO User(FirstName, LastName, DateOfBirth, Username, Email, Password) VALUES(?)`
+  let user = []
+
+  for([keys, values] of Object.entries(data))
+    user.push(values)
+  
+  let result = await db.pool.query(sql, [user])
+  return result
+}
+
+module.exports = {
+  getUsers,
+  getUser,
+  addUser,
+  User,
+};
