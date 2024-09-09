@@ -8,7 +8,7 @@ const { user } = require("../models/userModel")
 
 // Sign Up
 router.get("/signup", function(req, res){
-  res.render("signupandlogin", { 
+  res.render("signup", { 
     current_view: "signup", 
     title: "Sign Up"
   });
@@ -18,7 +18,7 @@ router.post("/signup", async function(req, res){
   // checking if the user exists
   let check = await userModel.getUser(req.body.email, req.body.first_name)
   if(check.length >= 1){
-    res.render("signupandlogin", { 
+    res.render("signup", { 
       current_view: "signup", 
       title: "Sign Up",
       errors: `User Already Exists`
@@ -26,7 +26,7 @@ router.post("/signup", async function(req, res){
 
     return
   }
-  
+
   let data = {
     ...req.body
   }
@@ -49,7 +49,7 @@ router.post("/signup", async function(req, res){
 
 // Login
 router.get("/login", function(req, res){
-  res.render("signupandlogin", { 
+  res.render("login", { 
     current_view: "login",
     title: "Log In" 
   });
@@ -71,12 +71,11 @@ router.post("/login", async function (req, res){
           res.cookie('user', 'owner')
         else
           res.cookie('user', result.user_id)
-        
-        res.redirect('/home')
+          res.redirect('/home')
       }
       else {
         // wrong passwod
-        res.render("signupandlogin", { 
+        res.render("login", { 
           current_view: "login",
           title: "Log In",
           errors: `Wrong Password`,
@@ -85,7 +84,7 @@ router.post("/login", async function (req, res){
       }
     } else {
       // no user
-      res.render("signupandlogin", { 
+      res.render("login", { 
         current_view: "login",
         title: "Log In",
         errors: `No Such User: ${req.body.email}`

@@ -12,9 +12,9 @@ class User {
     this.phone_number = phone_number;
   }
 
-  async getUserById(id) {
-    const sql = `SELECT * FROM User WHERE user_id = ?`;
-    const [user] = await db.pool.query(sql, [id]);
+  async getUserById(user_id) {
+    const sql = `SELECT * FROM Users WHERE user_id = ?`;
+    const [user] = await db.pool.query(sql, [user_id]);
     if (user) {
       for (const [key, value] of Object.entries(user[0])) {
         this[key] = value;
@@ -23,7 +23,7 @@ class User {
   }
 
   async getUserByEmail(email) {
-    const sql = `SELECT * FROM User WHERE email = ?`;
+    const sql = `SELECT * FROM Users WHERE email = ?`;
     const [user] = await db.pool.query(sql, [email]);
     if (user) {
       for (const [key, value] of Object.entries(user[0])) {
@@ -59,7 +59,7 @@ class User {
   }
 
   static async addUser(data) {
-    const sql = `INSERT INTO User(first_name, last_name, email, password, phone_number) VALUES(?)`;
+    const sql = `INSERT INTO Users(first_name, last_name, email, phone_number,password) VALUES(?,?,?,?,?)`;
     const user = [];
 
     for (const [key, value] of Object.entries(data)) {
@@ -68,6 +68,17 @@ class User {
 
     const result = await db.pool.query(sql, [user]);
     return result;
+  }
+}
+async function getName(id){
+  try {
+    let sql = `SELECT CONCAT(first_name," ", last_name) AS "Name" FROM Users WHERE user_id = ?`
+    let [result] = await db.pool.query(sql, id)
+    result = result[0].Name
+    return result
+  } catch(err){
+    console.error(err)
+    throw err
   }
 }
 
@@ -81,20 +92,20 @@ const getUsers = async () => {
   }
 };
 
-async function getUser(email, username = null){
-  if(username != null) {
-    let sql = `SELECT * FROM User WHERE Email = ? or Username = ?`
-    let [result] = await db.pool.query(sql, [email, username])
+async function getUser(email, first_name = null){
+  if(first_name != null) {
+    let sql = `SELECT * FROM Users WHERE email = ? or first_name = ?`
+    let [result] = await db.pool.query(sql, [email, first_name])
     return result
   }
 
-  let sql = `SELECT * FROM User WHERE Email = ?`
+  let sql = `SELECT * FROM Users WHERE email = ?`
   let [result] = await db.pool.query(sql, [email])
   return result
 }  
 
 async function addUser(data){
-  let sql = `INSERT INTO User(FirstName, LastName, DateOfBirth, Username, Email, Password) VALUES(?)`
+  let sql = `INSERT INTO Users(first_name, last_name, email, phone_number,password) VALUES(?)`
   let user = []
 
   for([keys, values] of Object.entries(data))
@@ -106,6 +117,7 @@ async function addUser(data){
 
 module.exports = {
   getUsers,
+  getName,
   getUser,
   addUser,
   User,
