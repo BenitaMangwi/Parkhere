@@ -2,7 +2,7 @@ const { query } = require('express');
 const db = require('../services/db');
 const { pool } = require("../services/db")
 
-// Function to get all users
+//OOP construction
 class User {
   constructor(first_name = null, last_name = null, password = null, email = null, phone_number = null) {
     this.first_name = first_name;
